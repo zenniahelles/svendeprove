@@ -1,0 +1,14 @@
+$base-color: #c6538c;
+html{
+    position:relative;
+    min-height:100%;
+    }
+    
+.Content{
+    padding:10px;
+    box-sizing:border-box;
+}
+
+h2{
+    color:$base-color;
+}

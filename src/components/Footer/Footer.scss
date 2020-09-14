@@ -1,0 +1,37 @@
+footer{
+    position:absolute;
+    opacity:1;
+    z-index:1;
+    width:100%;
+    background:rgba(28, 38, 48, 0.89);
+    padding:15px;
+    box-sizing:border-box;
+    color:white;
+    font-weight:lighter;
+    font-size:9pt;
+    position: absolute;
+    text-align:center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    padding-left:10px;
+    padding-right:10px;
+    box-sizing:border-box;
+    .FooterGrid{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin:auto;
+        width:100%;
+        max-width:1280px;
+        .icon{
+            height:2em;
+            padding-right:7px;
+        }
+        .links{
+            display:block;
+            color:white;
+            text-decoration:none;
+        }
+    }
+}

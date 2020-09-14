@@ -1,0 +1,179 @@
+.mainContainer{
+    width: 100%;
+}
+
+.selected{
+    transform: scale(2.1);
+    transition: all 0.2s ease;
+    margin:0;
+    cursor: pointer;
+}
+.default{
+    transition: all 0.2s ease;
+    font-size: 2rem;
+    margin:0;
+    cursor: pointer;
+}
+
+
+.default:hover{
+}
+
+h2{
+    margin:0;
+
+}
+
+p{
+}
+
+.topContainer{
+    width: 95%;
+    margin:auto;    
+    margin-top: 0;
+    z-index: 3;
+
+    h2{
+    }
+}
+
+.msg{
+    font-size: 1.4rem;
+    text-align: center;
+    display: block;
+    margin:auto;
+}
+
+.gridContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 80%;
+    margin:auto;
+    gap: 16px;
+    padding: 32px 0 32px 0;
+    margin-bottom: 2%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+}
+.commentContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 95%;
+    z-index: 3;
+    margin:auto;
+    gap: 8px;
+    margin-bottom: 5%;
+
+    h2{
+        margin:0;
+        margin-bottom: 2%;
+    }
+}
+
+.listContainer{
+    display: grid;
+    width: 80%;
+    margin:auto;
+    padding: 16px;
+
+    div{
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        display: grid;
+        grid-template-columns: 0.1fr 0.1fr 0.1fr 0.1fr;
+        align-items: center;
+        svg{
+            font-size: 1.2rem;
+            margin-top: 15%;
+            cursor: pointer;
+        }
+        p{
+            display: inline-block;
+        }
+    }
+    
+    li{
+        list-style-type: none;
+    }
+}
+
+.listGridItem:nth-child(odd){
+    margin:0;
+    padding:12px;
+}
+
+.listGridItem:nth-child(even){
+    margin:0;
+    padding:12px;
+}
+
+.listGridItem{
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+}
+
+.form{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin:auto;
+    justify-items: center;
+    label{
+        display:block;
+    }
+    input{
+        background-color:white;
+        display:block;
+  display:inline-block; 
+        border-radius: 6px;
+        width: 300px;
+    }
+
+    span{
+        display: inline-block;
+    }
+
+    select{
+        display:inline-block;
+        width: 120px;
+        padding:8px;
+        border-radius: 6px;
+        background-color: white;
+    }
+
+    select:focus{
+    }
+
+    input:focus{
+    }
+}
+
+.formBtn{
+    border: none;
+    border-radius: 4px;
+    height: 40px;
+    outline: none;
+    width: 120px;
+    color:white;
+    padding: 8px;
+    color:white;
+    transition: background-color, color 0.3s ease;
+    align-self: end;
+    justify-self: center;
+    margin-bottom: 8px;
+
+}
+
+.formBtn:hover{
+    color:white;
+}
+
+@media screen and (max-width: 1000px) {
+    .form{
+        grid-template-columns: 1fr;
+    }
+}

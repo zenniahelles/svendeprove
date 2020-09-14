@@ -1,0 +1,85 @@
+.Tilmelding{
+    padding:20px;
+    max-width:1280px;
+    margin:auto;
+    font-size:10pt;
+    padding-top:50px;
+    margin-bottom:200px;
+
+    .FormGrid{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding:20px;
+        box-sizing:border-box;
+        .error{
+            color:red;
+        }
+    .comment{
+        height:40%;
+        }
+    label{
+        display:block;
+        padding:18px 0 5px 0;
+        color:rgb(43, 87, 129);
+    }
+    input, select{
+        padding:10px;
+        border-radius:3px;
+        text-decoration:none;
+        border:1px solid rgba(43, 87, 129, 0.548);
+        background:rgba(43, 87, 129, 0.096);
+        width:100%;
+        max-width:280px;
+    }
+    .gender{
+        display:inline;
+        input{
+            width:15px;
+            padding:0;
+            margin:0;
+            margin-right:4px;
+        }
+        span{
+            margin-right:20px;
+        }
+    
+    }
+
+    .submit{
+        text-decoration:none;
+        padding:10px 20px 10px 20px;
+        border-radius:3px;
+        width:100%;
+        max-width:150px;
+        display:block;
+        margin-top:20px;
+        background:rgb(43, 87, 129);
+        color:white;
+        border:none;
+    }
+}
+}
+
+.TilmeldingHeader{
+    background:rgba(43, 87, 129, 0.849);
+    height:40vh;
+        h1{
+            position: absolute;
+            width:100%;
+            text-align:center;
+            top:100px;
+            font-weight:100;
+            font-size:3vw;
+            opacity:1;
+            z-index:1;
+            color:rgb(255, 255, 255);
+        }
+        img{
+        width:100%;
+        opacity:50%;
+        object-fit: cover;
+        object-position: 50% 18%;
+        height:100%;
+    
+    }
+    }

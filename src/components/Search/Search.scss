@@ -1,0 +1,85 @@
+.Deltagerliste{
+    padding:20px;
+    max-width:1280px;
+    margin:auto;
+    font-size:10pt;
+    padding-top:50px;
+    margin-bottom:200px;
+    .SearchArea{
+        background:rgba(208, 228, 245, 0.781);
+        margin-top:30px;
+        span{
+            text-align:right;
+            float:right;
+            padding-top:27px;
+            padding-right:30px;
+            color: rgb(43, 88, 129);
+            font-size:11pt;
+        }
+    }
+    .ResultsGrid{
+        display:grid;
+        grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+        span{
+            padding:10px;
+            padding-left:15px;
+        }
+        &:nth-child(even) {
+            background: rgba(235, 245, 255, 0.685)
+        }
+        &:nth-child(odd) {
+            background: rgba(208, 228, 245, 0.781)
+        }
+    }
+    .ResultTitles{
+        font-weight:bold;
+        color:rgb(43, 88, 129);
+        margin-top:30px;
+        padding:10px 10px 10px 0;
+        border-bottom:1.2px solid rgba(87, 126, 163, 0.473);
+    }
+    input{
+        padding:9px;
+        border-radius:3px 0px 0px 3px;
+        text-decoration:none;
+        border:1px solid rgba(43, 87, 129, 0.548);
+        background:rgb(242, 247, 253);
+        margin-bottom:20px;
+        margin-left:20px;
+        max-width:300px;
+    }
+    button{
+        text-decoration:none;
+        padding:10px 20px 10px 20px;
+        border-radius:0px 3px 3px 0px;
+        max-width:150px;
+        margin-top:20px;
+        background:rgb(43, 87, 129);
+        color:white;
+        border:none;
+    }
+}
+
+.DeltagerHeader{
+    background:rgba(43, 87, 129, 0.849);
+    height:40vh;
+        h1{
+            position: absolute;
+            width:100%;
+            text-align:center;
+            top:100px;
+            font-weight:100;
+            font-size:3vw;
+            opacity:1;
+            z-index:1;
+            color:rgb(255, 255, 255);
+        }
+        img{
+        width:100%;
+        opacity:50%;
+        object-fit: cover;
+        object-position: 50% 80%;
+        height:100%;
+    
+    }
+    }
