@@ -55,10 +55,11 @@ function Login(props){
          <form>
             {!props.loginData.user_id && 
             <>
-            <h2>Log ind</h2>
+            <h2>Login</h2>
+            <p>Indtast brugernavn og adgangskode for at logge på</p>
                 <label>Brugernavn:</label>
                 <input type='text' value={username} onClick={()=>{setUsername("")}} onChange={(e) =>{setUsername(e.target.value)}}></input>
-                <label>Password:</label>
+                <label>Adgangskode:</label>
                 <input type='password' value={password} onClick={()=>{setPassword("")}} onChange={(e) =>{setPassword(e.target.value)}}></input>
                 <button onClick={(e)=> {getToken(e)}}>Log ind</button>
             </>

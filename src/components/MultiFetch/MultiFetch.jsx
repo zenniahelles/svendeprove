@@ -51,11 +51,11 @@ function MultiFetch(props) {
         <div className="Breadcrumbs">
             <h2>Lande</h2>
 
-            {!cities.items && countries && countries.items && countries.items.map((item, index) => {
+            {countries && countries.items && countries.items.map((item, index) => {
                 return(
                 <div key={index}>
-                    <h3>{item.name}</h3>
-                <img id={item.id} onClick={(e) => {setCountryId(e.target.id)}} src={item.image} alt="country"></img>
+                    <h3 id={item.id}  onClick={(e) => {setCountryId(e.target.id)}}>{item.name}</h3>
+                <img id={item.id}  src={item.image} alt="country"></img>
                 </div>
                 )
             })}

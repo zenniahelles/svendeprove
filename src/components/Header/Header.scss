@@ -1,0 +1,95 @@
+header{
+.HeaderGrid{
+    display:grid;
+    grid-template-columns: 70% 30%;
+    margin:auto;
+    padding:10px;
+    padding-bottom:30px;
+    margin-top:80px;
+    max-width:1366px;
+    width:100%;
+    box-sizing:border-box;
+
+    button{
+        background:#00f9b6;
+        text-decoration:none;
+        font-family: 'Titillium Web';
+        padding:2px 25px 2px 25px;
+        font-size:1.1vw;
+        border:none;
+        border-radius:2px;
+        margin-left:20px;
+        color:#2c3737;
+    }
+.TopNav{
+    position:relative;
+    .NavImage{
+        width:100%;
+        box-sizing:border-box;
+        float:right;
+        padding-right:10px;
+    }
+    .Links{
+        z-index:1;
+        position: absolute;
+        top:35%;
+        bottom:25%;
+        right:3%;
+    
+        span{
+            padding-left:30px;
+            a{
+                color:white;
+                text-decoration:none;
+                font-weight:200;
+            }
+        }
+    }
+}
+.Search{
+    color:white;
+    padding-left:10px;
+    span{
+        color:#AFAFAF;
+        font-size:9pt;
+        padding:10px;
+    }
+    .Mail{
+        max-height:15px;
+    }
+    .Phone{
+        max-height:22px;
+        padding-left:8px;
+    }
+    .Cart{
+        max-height:25px;
+        padding-left:10px;
+    }
+    button{
+        width:50%;
+        margin:auto;
+        margin-top:10px;
+    }
+}
+}
+
+.Breadcrumbs{
+    border-top:1.5px solid rgba(255, 255, 255, 0.178);
+    border-bottom:1.5px solid rgba(255, 255, 255, 0.178);
+    margin-bottom:20px;
+    max-width:1366px;
+    width:100%;
+    padding:5px;
+    box-sizing:border-box;
+    img{
+        max-width:18px;
+        margin:0 8px 0 0;
+    }
+    a{
+        color:#00f9b6;
+        text-decoration:none;
+        font-weight:200;
+        font-size:11pt;
+    }
+}
+}

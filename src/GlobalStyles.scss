@@ -1,14 +1,22 @@
-$base-color: #c6538c;
+$accent-color: #00f9b6;
+
+.SiteGrid{
+    display:grid;
+    grid-template-columns: 14% 86%;
+    width:100%;
+    max-width:1366px;
+    margin:auto;
+    padding:10px;
+    box-sizing: border-box;
+    margin-bottom:140px;
+}
+
 html{
-    position:relative;
-    min-height:100%;
+    background:black;
     }
     
 .Content{
     padding:10px;
     box-sizing:border-box;
-}
-
-h2{
-    color:$base-color;
+    width:100%;
 }

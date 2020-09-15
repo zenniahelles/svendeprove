@@ -5,54 +5,45 @@
     font-size:10pt;
     padding-top:50px;
     margin-bottom:200px;
+    color:white;
+    p{
+        font-size:13pt;
+        font-weight:bold;
+        margin:0;
+    }
+    h2{
+        font-size:2.5vw;
+        font-weight:200;
+    }
     label{
         display:block;
         padding:18px 0 5px 0;
-        color:rgb(43, 87, 129);
+        font-size:12pt;
+        font-weight:200;
     }
     input{
         padding:10px;
         border-radius:3px;
         text-decoration:none;
-        border:1px solid rgba(43, 87, 129, 0.548);
-        background:rgba(43, 87, 129, 0.096);
+        background:#00f9b71c;
+        border:1.5px solid #00f9b767;
+        color:#00f9b6;
+        font-size:12pt;
+        font-family: Titillium Web;
         width:100%;
         max-width:300px;
     }
-    button{
-        text-decoration:none;
-        padding:10px 20px 10px 20px;
-        border-radius:3px;
-        width:100%;
-        max-width:150px;
-        display:block;
-        margin-top:20px;
-        background:rgb(43, 87, 129);
-        color:white;
-        border:none;
-    }
-}
-
-.LoginHeader{
-    background:rgba(43, 87, 129, 0.849);
-    height:40vh;
-        h1{
-            position: absolute;
-            width:100%;
-            text-align:center;
-            top:100px;
-            font-weight:100;
-            font-size:3vw;
-            opacity:1;
-            z-index:1;
-            color:rgb(255, 255, 255);
+        button{
+            background:#00f9b6;
+            text-decoration:none;
+            display:block;
+            font-family: 'Titillium Web';
+            padding:5px 28px 5px 28px;
+            font-size:1.1vw;
+            border:none;
+            border-radius:2px;
+            margin-top:20px;
+            color:#2c3737;
+            font-weight:bold;
         }
-        img{
-        width:100%;
-        opacity:50%;
-        object-fit: cover;
-        object-position: 50% 92%;
-        height:100%;
-    
-    }
-    }
+}

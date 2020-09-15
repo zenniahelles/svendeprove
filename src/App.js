@@ -6,13 +6,15 @@ import Desktop from './components/Navigation/Desktop';
 import Mobile from './components/Navigation/Mobile';
 import MultiFetch from './components/MultiFetch/MultiFetch';
 import Ratings from './components/Ratings/Ratings';
-import Fetch from './components/Fetch/Fetch';
 import Login from './components/Login/Login';
 import PostForm from './components/PostForm/PostForm';
 import Search from './components/Search/Search';
+import Header from './components/Header/Header';
+import BrandDetails from './components/Navigation/BrandDetails';
 //Styles
 import './MediaQueries.scss'
 import './GlobalStyles.scss'
+
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
   }, [])
 
   const [loginData, setLoginData] = useState([])
+  const [brandID, setBrandID] = useState("")
+  console.log(brandID);
 
   console.log(loginData)
 
@@ -39,11 +43,14 @@ function App() {
 
   return (
     <Router>
-      <Desktop/>
       <div className="mobileMenu">
       <Mobile pageWrapId={"page-wrap"} outerContainerId={"App"} />
       <div id="page-wrap"></div>
       </div>
+      <Header/>
+      <div className="SiteGrid">
+      <Desktop setBrandID={setBrandID} brandID={brandID}/>
+
 {/* ----CONTENT CONTROL---- */}
 <div className="Content">
       <Switch>
@@ -68,15 +75,17 @@ function App() {
         <MultiFetch doFetch={doFetch}/>
         </Route>
 
-        <Route path="/fetch">
-        <Fetch doFetch={doFetch}/>
+        <Route path="/brand">
+        <BrandDetails doFetch={doFetch}/>
         </Route>
+
 
         <Route path="/">
         <Forside doFetch={doFetch}/>
       </Route>
 
       </Switch>
+</div>
 </div>
 {/* ----CONTENT CONTROL END---- */}
       <Footer/>
