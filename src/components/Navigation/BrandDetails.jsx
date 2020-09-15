@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
-
 export default function BrandDetails(props) {
     const [brand, setBrand ] = useState()
-    const [brandId, setBrandId ] = useState(0)
-  
     async function fetchBrand(id){
         const url = `https://api.mediehuset.net/stringsonline/brands/${id}`
         let data = await props.doFetch(url)
         setBrand(data)
     }
-    
     useEffect(() => {
-        if (!brandId == 0) {
-        fetchBrand(brandId)
+        if (props.brandID !== 0) {
+        fetchBrand(props.brandID)
         }
-    },[brandId])
-  
+    },[props.brandID])
+    console.log(brand)
     return (
       <div>
         {brand ? (

@@ -100,10 +100,10 @@ async function getParticipants(token) {
                     <button onClick={() => { getSearchResult()}}>SØG</button>
 
                     {/* <select name="sort" onChange={(e) => getSortResult(e, participants)}>
-                        <option value="firstname_asc">Alfabetisk (A-Z)</option>
-                        <option value="firstname_desc">Alfabetisk (Z-A)</option>
-                        <option value="zipcode_asc">Postnummer (Stigende)</option>
-                        <option value="zipcode_desc">Postnummer (Faldende)</option>
+                        <option value="name_asc">Alfabetisk (A-Z)</option>
+                        <option value="name_desc">Alfabetisk (Z-A)</option>
+                        <option value="price_asc">Pris (Stigende)</option>
+                        <option value="price_desc">Pris (Faldende)</option>
                     </select> */}
 
                     {participants && console.log( "Count:", allPartcipants.count)}

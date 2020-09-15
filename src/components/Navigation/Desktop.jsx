@@ -62,7 +62,7 @@ function Desktop(props) {
           {brands.items
             ? brands.items.map((item, i) => (
                 <div key={i} className='submenu'>
-                  <Link><span id={item.id} onClick={(e)=>{props.setBrandID(e.target.id)}} className='sublink'>{item.title}</span></Link>
+                   <Link to="/brand"><span id={item.id} onClick={(e)=>{props.setBrandID(e.target.id)}} className='sublink'>{item.title}</span></Link>
                 </div>
               ))
             : null}

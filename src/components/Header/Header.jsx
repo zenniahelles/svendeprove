@@ -13,7 +13,7 @@ function Header() {
         <header>
         <section className="HeaderGrid">
             <nav className="TopNav">
-                <img className="NavImage"src={Headerbg} alt="header"/>
+                <img className="NavImage" src={Headerbg} alt="header"/>
                 <div className="Links">
                     <span><Link to="/">Forside</Link></span>
                     <span><Link to="/">Salgs- og handelsbetingelser</Link></span>

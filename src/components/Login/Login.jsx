@@ -3,7 +3,6 @@ import './Login.scss'
 
 function Login(props){
 
-    const setLoginData = () => props.setLoginData
 
     const [username, setUsername] = useState("Indtast brugernavn")
     const [password, setPassword] = useState("Indtast password")

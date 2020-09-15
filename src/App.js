@@ -17,8 +17,6 @@ import './MediaQueries.scss'
 import './GlobalStyles.scss'
 
 
-
-
 function App() {
   useEffect(() => {
     if(sessionStorage.getItem("token")){
@@ -83,7 +81,6 @@ function App() {
         <Route path="/brand">
         <BrandDetails doFetch={doFetch} brandID={brandID}/>
         </Route>
-
 
         <Route path="/">
         <Forside doFetch={doFetch}/>
