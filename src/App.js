@@ -25,8 +25,7 @@ function App() {
   }, [])
 
   const [loginData, setLoginData] = useState([])
-  const [brandID, setBrandID] = useState("")
-  console.log(brandID);
+  const [brandID, setBrandID] = useState()
 
   console.log(loginData)
 
@@ -49,7 +48,7 @@ function App() {
       </div>
       <Header/>
       <div className="SiteGrid">
-      <Desktop setBrandID={setBrandID} brandID={brandID}/>
+      <Desktop setBrandID={setBrandID}/>
 
 {/* ----CONTENT CONTROL---- */}
 <div className="Content">
@@ -76,7 +75,7 @@ function App() {
         </Route>
 
         <Route path="/brand">
-        <BrandDetails doFetch={doFetch}/>
+        <BrandDetails doFetch={doFetch} brandID={brandID}/>
         </Route>
 
 

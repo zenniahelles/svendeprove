@@ -1,5 +1,5 @@
 //-------------------DESKTOP MENU---------------// 
-.SideMenu{
+.SideMenu {
   color:#00f9b6;
   background:#00f9b71c;
   border:1.5px solid #00f9b767;
@@ -7,27 +7,30 @@
   margin-right:15px;
   box-sizing:border-box;
   height:fit-content;
-  .mainlink{
-    font-size:12pt;
-    margin:5px;
-    padding:0;
-    box-sizing:border-box;
-    &:hover{
-      color:white;
+    .mainlink {
+        cursor: pointer;
+        &:hover .submenu {
+            visibility: visible;
+            height: auto;
+            opacity: 1;
+        }
     }
-  }
-  a{
-    color:#00f9b6;
-    display:block;
-    text-decoration:none;
-    margin:0;
-    &:hover{
-      color:white;
+    .submenu {
+        padding-left: 1rem;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: height 0.5s, opacity 0.5s ease-in-out;
     }
-  }
-  .sublink{
-    font-size:11pt;
-    padding-left:18px;
+    .sublink {
+      background: none;
+      border: none;
+      font-size: 0.8rem;
+      display: block;
+      cursor: pointer;
+      &:hover{
+        color:white;
+      }
   }
 }
 
