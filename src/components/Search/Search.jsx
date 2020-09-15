@@ -35,7 +35,7 @@ async function getParticipants(token) {
         'Authorization': `Bearer ${token}`
     };
     try {
-        const url = `https://api.mediehuset.net/rordal/registrations`
+        const url = `https://api.mediehuset.net/stringsonline/`
         const response = await fetch(url, headers);
         let data = await response.json();
         setAllParticipants(data)
@@ -69,7 +69,7 @@ async function getParticipants(token) {
             'Authorization': `Bearer ${props.loginData && props.loginData.access_token}`
         }
         try {
-            const url = `https://api.mediehuset.net/rordal/search/${query}`
+            const url = `https://api.mediehuset.net/stringsonline/search/${query}`
             const response = await fetch(url, headers)
             const data = await response.json()
             setAllParticipants(data)
@@ -88,24 +88,23 @@ async function getParticipants(token) {
 
     return (
         <div>
-            <section className="Deltagerliste">
-                <span><Link to="/">FORSIDE</Link> <FaAngleRight /> DELTAGERLISTE</span>
-                <h2>Search</h2>
+            <section className="SearchPage">
+                <h2><span>Søg</span> efter produkter</h2>
                 <div className="SearchArea">
                     <input 
                         type="text" 
                         className="form-control" 
-                        placeholder="Søg blandt deltagere" 
+                        placeholder="Søg efter produkt" 
                         onChange={(e) => setQuery(e.target.value)}
                         autoFocus />
                     <button onClick={() => { getSearchResult()}}>SØG</button>
 
-                    <select name="sort" onChange={(e) => getSortResult(e, participants)}>
+                    {/* <select name="sort" onChange={(e) => getSortResult(e, participants)}>
                         <option value="firstname_asc">Alfabetisk (A-Z)</option>
                         <option value="firstname_desc">Alfabetisk (Z-A)</option>
                         <option value="zipcode_asc">Postnummer (Stigende)</option>
                         <option value="zipcode_desc">Postnummer (Faldende)</option>
-                    </select>
+                    </select> */}
 
                     {participants && console.log( "Count:", allPartcipants.count)}
                     {searchParticipants && console.log("Count Search:", searchParticipants.num_items)}
@@ -117,30 +116,35 @@ async function getParticipants(token) {
 
                 {isLoading ? 
                     (
-                        <h2>Henter deltagere</h2>
+                        <h2>Henter produkter</h2>
                     ) : (
                         <div>
-                <div className="ResultsGrid ResultTitles">
-                <span>Start nr.:</span>
-                <span>Navn:</span>
-                <span>By:</span>
-                <span>Løb:</span>
-                <span>Postnr.:</span>
-                </div>
 
                 
                             {participants && participants.map((item, i) => {
                                 return (
                                     <div className="ResultsGrid" key={i}>
-                                    <p>{item.id}</p>
-                                    <p>{item.firstname} {item.lastname}</p>
-                                    <p>{item.city}</p>
-                                    <div>
-                                    <p>{item.run_id == 1 && "10 km"}</p>
-                                    <p>{item.run_id == 2 && "5 km"}</p>
-                                    <p>{item.run_id == 3 && "One Mile"}</p>
-                                    </div>
-                                    <p>{item.zipcode}</p>
+                                    <figure><img src={item.image_fullpath} alt='product'/>
+                                    </figure>
+            
+            <article className="Product">
+              <h3>{item.name}</h3>
+              <p>{item.description_short}</p>
+              <Link>Læs mere</Link>
+              {(() => {
+                                  if (item.offerprice == "0.00") {
+                                  return (
+                                      <p>Pris: DKK {item.price}</p>
+                                  )
+                                  } else {
+                                  return (
+                                      <p>Pris: DKK {item.offerprice}</p>
+                                  )
+                                  }
+                              })()}
+                              <button>Læg i kurv</button>
+                              <br/>
+            </article>
                                     </div>
                                 
                                 )

@@ -11,9 +11,11 @@ import PostForm from './components/PostForm/PostForm';
 import Search from './components/Search/Search';
 import Header from './components/Header/Header';
 import BrandDetails from './components/Navigation/BrandDetails';
+import ProductListPage from './components/ProductList/ProductList';
 //Styles
 import './MediaQueries.scss'
 import './GlobalStyles.scss'
+
 
 
 
@@ -27,7 +29,7 @@ function App() {
   const [loginData, setLoginData] = useState([])
   const [brandID, setBrandID] = useState()
 
-  console.log(loginData)
+  console.log(brandID)
 
   async function doFetch(url){
     try {
@@ -73,6 +75,10 @@ function App() {
       <Route path="/multifetch">
         <MultiFetch doFetch={doFetch}/>
         </Route>
+
+      <Route path="/productlist">
+        <ProductListPage/>
+      </Route>
 
         <Route path="/brand">
         <BrandDetails doFetch={doFetch} brandID={brandID}/>

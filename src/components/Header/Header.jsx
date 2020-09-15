@@ -25,13 +25,13 @@ function Header() {
             <img src={Mail} className="Mail" alt="mail-icon"/><span>SALES@STRINGSONLINE.COM</span>
             <img src={Phone} className="Phone" alt="phone-icon"/><span>+45 98 12 22 68</span>
             <img src={Cart} className="Cart" alt="cart-icon"/>
-            <button>Søg</button>
+            <Link to ="/search"><button>Søg</button></Link>
             </section>
 
         </section>
 
         <section className="Breadcrumbs">
-        <img src={Home} className="Home" alt="home-icon"/><Link>Forside</Link>
+        <img src={Home} className="Home" alt="home-icon"/><Link to="/">Forside</Link>
         </section>
         </header>
     )

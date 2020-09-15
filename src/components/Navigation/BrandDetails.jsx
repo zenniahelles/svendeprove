@@ -19,7 +19,7 @@ export default function BrandDetails(props) {
     return (
       <div>
         {brand ? (
-          <div className="Nyhed">
+          <div className="Brand">
           <img src={brand.item.image_fullpath}/>
             <h4>{brand.item.title}</h4>
             <p>{brand.item.description}</p> 

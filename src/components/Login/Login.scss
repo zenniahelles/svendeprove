@@ -1,9 +1,9 @@
 .LoginSide{
     padding:20px;
+    padding-top:0;
     max-width:800px;
     margin:auto;
     font-size:10pt;
-    padding-top:50px;
     margin-bottom:200px;
     color:white;
     p{
@@ -14,6 +14,7 @@
     h2{
         font-size:2.5vw;
         font-weight:200;
+        margin:0;
     }
     label{
         display:block;

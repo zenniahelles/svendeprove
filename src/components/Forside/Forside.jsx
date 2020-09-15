@@ -33,17 +33,17 @@ function Forside(props) {
     </article>
 </section>
 
-<section>
-  <h3>Kundernes Favoritter</h3>
+<section className="Products">
+  <h3><span>Kundernes</span> favoritter</h3>
   <section >
     {products && products.slice(0,4).map((item, index) => {
       return(
         <div className="productGrid" key={index}>
           
-          <img src={item.image_fullpath} alt='product'/>
+          <figure><img src={item.image_fullpath} alt='product'/></figure>
             
           <article className="productDescription">
-            <h3>{item.name}</h3>
+            <h4>{item.name}</h4>
             <p>{item.description_short}</p>
             <Link>Læs mere</Link>
             {(() => {
@@ -58,6 +58,8 @@ function Forside(props) {
                                 }
                             })()}
                             <button>Læg i kurv</button>
+                            <br/><br/>
+                            
           </article>
         </div>
             )

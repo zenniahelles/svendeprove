@@ -62,7 +62,7 @@ function Desktop(props) {
           {brands.items
             ? brands.items.map((item, i) => (
                 <div key={i} className='submenu'>
-                  <Link id={item.id} onClick={(e)=>{props.setBrandID(e.target.id)}}><span className='sublink'>{item.title}</span></Link>
+                  <Link><span id={item.id} onClick={(e)=>{props.setBrandID(e.target.id)}} className='sublink'>{item.title}</span></Link>
                 </div>
               ))
             : null}
@@ -73,49 +73,3 @@ function Desktop(props) {
 
 export default Desktop;
 
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import './Navigation.scss'
-// import BrandsList from './BrandsList.jsx';
-
-// class Desktop extends React.Component {
-
-//     state = { showing: false };
-
-//     render() {
-//         const { showGuitar } = this.state;
-//         const { showBrands } = this.state;
-//         const { showBass } = this.state;
-//         const { showOther } = this.state;
-//         const { showKeyboard } = this.state;
-
-//         return (
-//             <div className="SideMenu">
-//                 <ul className="mainlink" onClick={() => this.setState({ showGuitar: !showGuitar })}>Guitarer</ul>
-//                 <Link to="/"><li className="sublink" style={{ display: (showGuitar ? 'block' : 'none') }}>Elguitarer</li></Link>
-//                 <Link to="/"><li className="sublink" style={{ display: (showGuitar ? 'block' : 'none') }}>Westernguitarer</li></Link>
-                
-//                 <ul className="mainlink" onClick={() => this.setState({ showBass: !showBass })}>Basser</ul>
-//                 <Link to="/"><li className="sublink" style={{ display: (showBass ? 'block' : 'none') }}>Elbasser</li></Link>
-//                 <Link to="/"><li className="sublink" style={{ display: (showBass ? 'block' : 'none') }}>Akustiske basser</li></Link>
-                
-//                 <ul className="mainlink" onClick={() => this.setState({ showOther: !showOther })}>Andre Strengeinstrumenter</ul>
-//                 <Link to="/"><li className="sublink" style={{ display: (showOther ? 'block' : 'none') }}>Banjo</li></Link>
-//                 <Link to="/"><li className="sublink" style={{ display: (showOther ? 'block' : 'none') }}>Mandolin</li></Link>
-//                 <Link to="/"><li className="sublink" style={{ display: (showOther ? 'block' : 'none') }}>Ukulele</li></Link>
-                
-//                 <ul className="mainlink" onClick={() => this.setState({ showKeyboard: !showKeyboard })}>Keyboards</ul>
-//                 <Link to="/"><li className="sublink" style={{ display: (showKeyboard ? 'block' : 'none') }}>Digitalklaverer</li></Link>
-//                 <Link to="/"><li className="sublink" style={{ display: (showKeyboard ? 'block' : 'none') }}>USB & MIDI-keyboards</li></Link>
-//                 <Link to="/"><li className="sublink" style={{ display: (showKeyboard ? 'block' : 'none') }}>Synthesizere</li></Link>
-//                 <Link to="/"><li className="sublink" style={{ display: (showKeyboard ? 'block' : 'none') }}>Groovebokse og samplere</li></Link>
-
-//                 <ul className="mainlink" onClick={() => this.setState({ showBrands: !showBrands })}>Brands</ul>
-//                 <div className="sublink" style={{ display: (showBrands ? 'block' : 'none') }}><BrandsList setBrandID={this.props.setBrandID}/></div>
-//             </div>  
-//         )
-//     }
-// }
-
-// export default Desktop
