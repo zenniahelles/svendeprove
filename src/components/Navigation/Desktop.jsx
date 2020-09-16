@@ -49,7 +49,7 @@ function Desktop(props) {
                 <span>
                   {item.subgroups.map((item, i) => (
                     <div key={i} className='submenu'>
-                      <span className='sublink'>{item.title}</span>
+                      <Link to="/productlist"><span id={item.id} onClick={(e)=>{props.setProductListID(e.target.id)}} className='sublink'>{item.title}</span></Link>
                     </div>
                   ))}
                 </span>

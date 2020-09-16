@@ -10,14 +10,15 @@ import Login from './components/Login/Login';
 import Checkout from './components/Cart/Checkout';
 import Search from './components/Search/Search';
 import Header from './components/Header/Header';
-import BrandDetails from './components/Navigation/BrandDetails';
+import BrandDetails from './components/Brands/BrandDetails';
 import ProductListPage from './components/ProductList/ProductList';
 import Buy from './components/Forside/Buy';
+import GetCart from './components/Cart/GetCart';
 
 //Styles
 import './MediaQueries.scss'
 import './GlobalStyles.scss'
-import GetCart from './components/Cart/GetCart';
+
 
 
 function App() {
@@ -29,8 +30,8 @@ function App() {
 
   const [loginData, setLoginData] = useState([])
   const [brandID, setBrandID] = useState()
+  const [productListID, setProductListID] = useState()
 
-  console.log(brandID)
 
   async function doFetch(url){
     try {
@@ -51,7 +52,7 @@ function App() {
       </div>
       <Header/>
       <div className="SiteGrid">
-      <Desktop setBrandID={setBrandID}/>
+      <Desktop setBrandID={setBrandID} setProductListID={setProductListID}/>
 
 {/* ----CONTENT CONTROL---- */}
 <div className="Content">
@@ -78,7 +79,7 @@ function App() {
         </Route>
 
       <Route path="/productlist">
-        <ProductListPage/>
+        <ProductListPage doFetch={doFetch} productListID={productListID}/>
       </Route>
 
         <Route path="/brand">

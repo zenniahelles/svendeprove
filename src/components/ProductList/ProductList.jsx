@@ -1,79 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductListPage = props => {
-    const [categoryData, setCategoryData] = useState(null);
-    return (
-        <div>
-            <div>
-                <CategoryList setCategoryData={setCategoryData} />
-            </div>
-            <div>
-                <ProductList data={categoryData} />
-            </div>
-        </div>
-    )
-}
+export default function ProductListPage(props) {
 
-// Deklarerer kategori component
-const CategoryList = props => {
+    const [productList, setProductList ] = useState()
 
-    // Deconstructor props
-    const { setCategoryData } = props;
-    // Sætter API hook
-    const [apiData, setApiData] = useState(null);
-
-    useEffect(() => {
-        if(!apiData) {
-            // Henter liste af kategorier
-            fetch('https://api.mediehuset.net/bakeonline/categories')
-                .then((res) => res.json())
-                .then((data) => setApiData(data));
-        }
-    }, [apiData, setApiData]);
-
-    const fetchCategoryData = id => {
-            // Henter kategori detaljer + liste af produkter
-            fetch('https://api.mediehuset.net/bakeonline/categories/' + id)
-            .then((res) => res.json())
-            .then((data) => setCategoryData(data.products.products))
+    async function fetchProducts(id){
+        const url = `https://api.mediehuset.net/stringsonline/productgroups/${id}`
+        let data = await props.doFetch(url)
+        setProductList(data.group.products)
     }
-
+    useEffect(() => {
+        if (props.productListID !== 0) {
+        fetchProducts(props.productListID)
+        }
+    },[props.productListID])
+    console.log(productList)
     return (
-        <div>
-            <ul>
-                {/* Looper kategorier og indsætter knap til visning*/}
-                {apiData && apiData?.categories.map((category) => {
-                    return <li key={category.id} onClick={e => fetchCategoryData(category.id)}>
-                                {category.title}
-                            </li>
-                })}
-            </ul>
-        </div>                    
-    )
-}
-
-// Deklarerer product component
-const ProductList = props => {
-    const { data } = props;
-    return (
-        <div>
-            {data && data.map(product => (
-                <div key={"product-" + product.product_id}>
-                    <div>
-                        <Link to={"/product?id=" + product.product_id}>
-                            <img src={product.image.fullpath} alt={product.title}></img>
-                        </Link>        
-                    </div>
-                    <div>
-                        <Link to={"/product?id=" + product.product_id}>
-                            <h4>{product.title}</h4>
-                        </Link>
-                        <p>{product.teaser}</p>
-                    </div>
-                </div>
-            ))}
+      <div>
+        
+          <div className="ProductList">
+        {productList && productList.map((item, index) => {
+          return(
+            <div className="productGrid" key={index}>
+          
+          <figure><img src={item.image_fullpath} alt='product'/></figure>
+            
+              <article className="productDescription">
+                <h4>{item.name}</h4>
+                <p>{item.description_short} <Link>Læs mere</Link></p>
+                
+                {(() => {
+                  if (item.offerprice == "0.00") {
+                  return (
+                      <p className="price">Pris: DKK {item.price}</p>
+                  )
+                  } else {
+                  return (
+                      <p className="price">Pris: DKK {item.offerprice}</p>
+                  )
+                  }
+                })()}
+                  <button>Læg i kurv</button>
+                    <br/><br/>      
+              </article>
         </div>
-    )
-}
-export default ProductListPage;
+            )
+    })}   
+            
+          </div>
+         
+      </div>
+    );
+  }
