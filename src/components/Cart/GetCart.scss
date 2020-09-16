@@ -1,0 +1,117 @@
+.cartGrid{
+    display:grid;
+    grid-template-columns: 1fr 5fr;
+    font-size:10pt;
+    h3{
+        color:white;
+        font-size:15pt;
+        display:inline-block;
+    }
+    figure{
+        position: relative;
+        width: 100%;
+        background-color: white;
+        margin:0;
+        margin-bottom:25px;
+        img {
+            position: absolute;
+            top: 50%; 
+            left: 50%;
+            width: 80%;
+            transform: translate(-50%, -50%);
+            max-width:100%;
+            background:white;
+        }
+    }
+    .productDescription{
+        color:white;
+        padding-left:20px;
+        box-sizing:border-box;
+        border:1px solid rgba(128, 128, 128, 0.301);
+        margin-bottom:25px;
+        position:relative;
+        .info{
+            display:inline-block;
+            position:absolute;
+            right:0;
+            top:-10px;
+        }
+        p{
+        color:rgba(255, 255, 255, 0.521);
+        display:inline-block;
+        margin-right:20px;
+        span{
+            background:#00f9b6;
+            color:black;
+            font-weight:600;
+            padding:10px 15px;
+            border-radius:3px;
+            margin-left:15px;
+            margin-right:15px;
+        }
+        }
+        .price{
+            display:inline-block;
+            padding:6px 15px 8px 15px;
+            color:white;
+            border:1px solid rgba(104, 104, 104, 0.562);
+            border-radius: 3px 0 0 3px;
+        }
+        
+    }
+}
+
+.cartbutton{
+    border-radius:0px 3px 3px 0px;
+    background:#d10061;
+    text-decoration:none;
+    font-family: 'Titillium Web';
+    padding:8px 16px 8px 16px;
+    margin-right:15px;
+    border:none;
+    border-radius:3px;
+    color:white;
+}
+
+.CheckoutArea{
+    color:white;
+    text-align:right;
+    font-weight:600;
+    margin-right:30px;
+    p{
+        display:inline-block;
+    }
+    h4{
+        color:rgba(255, 255, 255, 0.637);
+        font-size:9pt;
+        font-weight:300;
+        margin:0;
+        padding:0;
+    }
+    span{
+        margin-left:20px;
+    }
+    button{
+        margin-right:0;
+        margin-left:15px;
+        display:inline-block;
+    }
+    .checkout{
+            background:#00f9b6;
+            font-weight:700;
+            text-decoration:none;
+            font-family: 'Titillium Web';
+            padding:15px 30px 15px 30px;
+            font-size:1vw;
+            border:none;
+            border-radius:2px;
+            margin-top:20px;
+            color:#2c3737;   
+}
+}
+.noitems{
+    color:white;
+}
+
+
+

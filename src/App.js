@@ -7,14 +7,16 @@ import Mobile from './components/Navigation/Mobile';
 import MultiFetch from './components/MultiFetch/MultiFetch';
 import Ratings from './components/Ratings/Ratings';
 import Login from './components/Login/Login';
-import PostForm from './components/PostForm/PostForm';
+import Checkout from './components/Cart/Checkout';
 import Search from './components/Search/Search';
 import Header from './components/Header/Header';
 import BrandDetails from './components/Navigation/BrandDetails';
 import ProductListPage from './components/ProductList/ProductList';
+import AddToCart from './components/Forside/Cart';
 //Styles
 import './MediaQueries.scss'
 import './GlobalStyles.scss'
+import GetCart from './components/Cart/GetCart';
 
 
 function App() {
@@ -58,8 +60,8 @@ function App() {
         <Search doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
         </Route>
 
-      <Route path="/postform">
-        <PostForm doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
+      <Route path="/checkout">
+        <Checkout doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
         </Route>
 
       <Route path="/login">
@@ -82,9 +84,19 @@ function App() {
         <BrandDetails doFetch={doFetch} brandID={brandID}/>
         </Route>
 
+        <Route path="/cart">
+        <AddToCart doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
+        </Route>      
+        
+        <Route path="/getcart">
+        <GetCart doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
+      </Route>
+
         <Route path="/">
         <Forside doFetch={doFetch}/>
       </Route>
+
+
 
       </Switch>
 </div>

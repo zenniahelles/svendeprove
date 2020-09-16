@@ -129,16 +129,15 @@ async function getParticipants(token) {
             
             <article className="Product">
               <h3>{item.name}</h3>
-              <p>{item.description_short}</p>
-              <Link>Læs mere</Link>
+              <p>{item.description_short} <Link>Læs mere</Link></p>
               {(() => {
                                   if (item.offerprice == "0.00") {
                                   return (
-                                      <p>Pris: DKK {item.price}</p>
+                                      <p className="price">Pris: DKK {item.price}</p>
                                   )
                                   } else {
                                   return (
-                                      <p>Pris: DKK {item.offerprice}</p>
+                                      <p className="price">Pris: DKK {item.offerprice}</p>
                                   )
                                   }
                               })()}

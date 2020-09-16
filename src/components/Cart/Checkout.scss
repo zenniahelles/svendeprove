@@ -1,0 +1,67 @@
+.Tilmelding{
+    padding:20px;
+    margin:auto;
+    margin-bottom:200px;
+    h2{
+        color:white;
+        font-size:20pt;
+        margin:0;
+    }
+
+    .FormGrid{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        box-sizing:border-box;
+        color:white;
+        p{
+            margin:0;
+            padding:0;
+            padding-bottom:5px;
+        }
+        .error{
+            color:#d10061;
+            font-size:9pt;
+        }
+    .comment{
+        height:40%;
+        }
+    input, select{
+        padding:10px;
+        margin-top:8px;
+        border-radius:3px;
+        text-decoration:none;
+        border:1px solid #00f9b760;
+        background:rgba(43, 87, 129, 0.096);
+        width:100%;
+        max-width:280px;
+        color:#00f9b6;
+        &::placeholder{
+            color:#00f9b6;
+        }
+    }
+    .disclaimer{
+        background:#00f9b71e;
+        color:#00f9b6;
+        font-size:9pt;
+        padding:20px;
+        max-width:260px;
+        width:100%;
+        border-radius:3px;
+        font-weight:200;
+        width:100%;
+    }
+
+    .order{
+        background:#00f9b6;
+        font-weight:700;
+        text-decoration:none;
+        font-family: 'Titillium Web';
+        padding:15px 30px 15px 30px;
+        font-size:1vw;
+        border:none;
+        border-radius:3px;
+        color:#2c3737;
+        max-height:50px;
+    }
+}
+}

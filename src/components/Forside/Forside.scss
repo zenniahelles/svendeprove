@@ -96,8 +96,15 @@
             margin-bottom:25px;
             p{
             color:rgba(255, 255, 255, 0.521);}
+            .price{
+                display:inline-block;
+                padding:6px 15px 8px 15px;
+                color:white;
+                border:1px solid rgba(104, 104, 104, 0.562);
+                border-radius: 3px 0 0 3px;
+            }
             button{
-                border-radius:3px 3px 3px 3px;
+                border-radius:0px 3px 3px 0px;
             }
             
         }
