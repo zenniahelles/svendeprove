@@ -21,6 +21,7 @@ function Checkout(props) {
         formData.append('city', values.city)
         formData.append('email', values.email)
         formData.append('phone', values.phone)
+        formData.append('status', 1);
 //Poster til APIet
         let options = {
             method: 'POST',

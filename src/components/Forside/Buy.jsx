@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function AddToCart(props) {
+function Buy(props) {
 
     // states til at gemme ID og data fra api
     const [items, setItems] = useState([]);
@@ -75,4 +75,4 @@ function AddToCart(props) {
     )
 }
 
-export default AddToCart
+export default Buy

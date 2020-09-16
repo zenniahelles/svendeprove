@@ -12,7 +12,8 @@ import Search from './components/Search/Search';
 import Header from './components/Header/Header';
 import BrandDetails from './components/Navigation/BrandDetails';
 import ProductListPage from './components/ProductList/ProductList';
-import AddToCart from './components/Forside/Cart';
+import Buy from './components/Forside/Buy';
+
 //Styles
 import './MediaQueries.scss'
 import './GlobalStyles.scss'
@@ -85,7 +86,7 @@ function App() {
         </Route>
 
         <Route path="/cart">
-        <AddToCart doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
+        <Buy doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
         </Route>      
         
         <Route path="/getcart">
