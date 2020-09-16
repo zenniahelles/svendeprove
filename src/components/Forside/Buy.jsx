@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import './Forside.scss'
+import { Link } from 'react-router-dom'
 
 function Buy(props) {
 
@@ -45,21 +47,38 @@ function Buy(props) {
         fetchProducts()
     }, [])
 
-    // Returner HTML
-    return (
-        <>
-            <h1>Tilføj kurv</h1>
-
-            {buyData && buyData.map((item, i) => {
-
+// Returner HTML
+return (
+    <section className="Products">
+        <h3><span>Kundernes</span> favoritter</h3>
+            <section>
+            {buyData && buyData.slice(0,4).map((item, index) => {
                 return (
-                    <form key={item.id}>
+                    <div className="productGrid" key={index}>
+
+                        <figure><img src={item.image_fullpath} alt='product'/></figure>
+                        
+                        <article className="productDescription">
+                        <h4>{item.name}</h4>
+                        <p>{item.description_short} <Link>Læs mere</Link></p>
+                        {(() => {
+                                if (item.offerprice == "0.00") {
+                                return (
+                                    <p className="price">Pris: DKK {item.price}</p>
+                                )
+                                } else {
+                                return (
+                                    <p className="price">Pris: DKK {item.offerprice}</p>
+                                )
+                                }
+                            })()}
+
+                        <form key={item.id}>
                         <input type="hidden" name="product_id" value={item.id} />
                         <input type="hidden" name="product_name" value={item.title} />
                         <input type="hidden" name="price" value={item.price} />
-                        <label htmlFor="quantity">Antal:</label>
-                        <p>{item.name}</p>
-                        <input type="number" name="quantity" 
+                        <label htmlFor="quantity">Vælg antal: </label>
+                        <input type="number" name="quantity"
                             onChange={(e) => setItems({
                                 product_id: item.id,
                                 price: item.price,
@@ -68,10 +87,13 @@ function Buy(props) {
                                 quantity: e.target.value
                             })} />
                         <button type="button" onClick={() => toCart()}>Læg i kurv</button>
-                    </form>
+                        </form>
+                        </article>
+                </div>
                 )
             })}
-        </>
+        </section>
+    </section>
     )
 }
 

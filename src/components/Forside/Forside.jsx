@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Forside.scss'
 import Feature from '../Images/hero-banner.png'
 import { Link } from 'react-router-dom'
+import Buy from './Buy.jsx'
 
 
 function Forside(props) {
@@ -35,39 +36,7 @@ function Forside(props) {
     </article>
 </section>
 
-<section className="Products">
-  <h3><span>Kundernes</span> favoritter</h3>
-  <section >
-    {products && products.slice(0,4).map((item, index) => {
-      return(
-        <div className="productGrid" key={index}>
-          
-          <figure><img src={item.image_fullpath} alt='product'/></figure>
-            
-          <article className="productDescription">
-            <h4>{item.name}</h4>
-            <p>{item.description_short} <Link>Læs mere</Link></p>
-            
-            {(() => {
-                                if (item.offerprice == "0.00") {
-                                return (
-                                    <p className="price">Pris: DKK {item.price}</p>
-                                )
-                                } else {
-                                return (
-                                    <p className="price">Pris: DKK {item.offerprice}</p>
-                                )
-                                }
-                            })()}
-                            <button>Læg i kurv</button>
-                            <br/><br/>
-                            
-          </article>
-        </div>
-            )
-    })}    
-    </section>    
-</section>
+<Buy doFetch={props.doFetch} loginData={props.loginData}/>
 
 </div>
 </>
