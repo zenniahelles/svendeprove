@@ -254,6 +254,28 @@ grid-template-columns: auto;
             }
 }
     }
+
+    .Kasse{
+        .ReceiptGrid{   
+            display:grid;
+            grid-template-columns: 1fr;
+            grid-gap:40px;
+            .griditem1{
+                button{
+                    width:100%;
+                    margin:0;
+                }
+            }
+            .griditem2{
+                padding-top:0;
+                text-align:center;
+                div{
+                    display:inline-block;
+                    margin:10px 40px;
+                }
+            }
+        }
+    }
 }
 @media only screen and (max-width: 650px) {
 .Cart{
@@ -294,7 +316,7 @@ grid-template-columns: auto;
 }
 
     .Kasse{
-        text-align:center;
+        // text-align:center;
         .FormGrid{
             grid-template-columns: 1fr;
             margin:auto;

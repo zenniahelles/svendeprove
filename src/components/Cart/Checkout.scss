@@ -1,11 +1,95 @@
 .Kasse{
     padding:20px;
     margin:auto;
-    margin-bottom:200px;
+    margin-bottom:100px;
     h2{
         color:white;
         font-size:20pt;
         margin:0;
+    }
+
+    .ReceiptGrid{   
+    display:grid;
+    grid-template-columns: 4fr 1fr;
+   grid-gap:60px;
+   box-sizing:border-box;
+   color:white;
+
+   .griditem2{
+    padding-top:70px;
+p{
+    margin:0;
+}
+div{
+    margin-bottom:50px;
+}
+   }
+
+   .griditem1{
+    border:1px solid #00f9b756;
+    padding:70px;
+    article{
+        border-bottom:1px solid #00f9b756;
+        border-top:1px solid #00f9b756;
+        margin-top:20px;
+        p{
+            span{
+                padding-left:10px;
+            }
+        } 
+    }
+    .productline{
+        border-bottom:1px solid #00f9b756;
+        border-top:1px solid #00f9b756;
+        display:flex;
+        justify-content: space-between;
+    }
+    .left{
+        display:inline-block;
+    //     p{
+    //         border:none;
+    //         text-align:left;
+    //         padding-right:20px;
+        }
+
+    // }
+    .middle{
+padding-right:10px;
+    }
+    .right{
+        display:inline-block;
+        float:right;
+    }
+   }
+   span{
+       color:#00f9b6;
+       margin:15px 0px;
+       padding-left:10px;
+       padding-right:10px;
+   }
+
+   h3{
+       margin:0;
+       padding:0;
+   }
+   button{
+    background:#00f9b6;
+    text-decoration:none;
+    font-family: 'Titillium Web';
+    padding:10px 25px 10px 25px;
+    font-size:12pt;
+    font-weight:700;
+    border:none;
+    border-radius:2px;
+    color:#2c3737;
+    transition: 0.3s;
+    width:40%;
+    margin-left:30%;
+    margin-right:10%;
+    &:hover{
+        background:#00f9b7b9;
+    }
+}
     }
 
     .FormGrid{

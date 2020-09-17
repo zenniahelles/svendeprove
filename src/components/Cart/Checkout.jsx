@@ -2,15 +2,42 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom'
 import './Checkout.scss'
+import '../../GlobalStyles.scss'
 
 function Checkout(props) {
 //States til at skifte indholdet når formen er udfyldt
     const [completed, setCompleted] = useState(false)
+    const [latestOrder, setLatestOrder] = useState([])
+    const [orderComplete, setOrderComplete] = useState([])
 
 // states til REACT-HOOK-FORM
     const { register, handleSubmit, errors } = useForm();
+
+// --- Hent Seneste køb
+
+    const getLatestOrder = async () => {
+        let options = {
+            method: "GET",
+            headers: {
+                'Authorization': `Bearer ${props.loginData.access_token}`,
+            }
+        }
+        try {
+            let url = `https://api.mediehuset.net/stringsonline/orders/${orderComplete.order_id}`
+            const response = await fetch(url, options);
+            const data = await response.json();
+            console.log(data)
+            setLatestOrder(data)
+        }
+
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+//------- formvalidering:
     
-    const onSubmit = values => {
+    const onSubmit = async values => {
        
         let formData = new FormData();
 //Appender værdierne fra de udfyldte felter til bodyen når man skal poste
@@ -32,26 +59,33 @@ function Checkout(props) {
             }
         }
         try {
-            const url = "https://api.mediehuset.net/stringsonline/orders"
-            fetch(url, options)
-                .then(response => response.json())
-                .then(data => console.log(data))
-                setCompleted(true)
+            const url = `https://api.mediehuset.net/stringsonline/orders`
+            const response = await fetch(url, options);
+            const data = await response.json();
+            console.log(data)
+            setOrderComplete(data)
+            setCompleted(true)
         } 
         catch(error) {
             console.error(error);
-        }
-        
+        } 
     }
+
+    useEffect(() => {
+        if (orderComplete.status == true) {
+            getLatestOrder()
+        }
+    }, [orderComplete])
 
     // Returner HTML
     return (
         <div> 
             <section className="Kasse">
-            <h2>Kasse</h2>
+            
             {!props.loginData.access_token ? <div><p>Du skal være logget ind for at kunne købe.</p><Link to="/login"><button>Log Ind</button></Link></div> : 
         <div>
                     {completed == false && <div>
+                        <h2>Kasse</h2>
 {/* -------FORM STARTS HERE-------- */}
             <form onSubmit={handleSubmit(onSubmit)} className="FormGrid">
 
@@ -145,12 +179,40 @@ function Checkout(props) {
                 </div>
                 }
 {/* ---------IF SUBMITTED, SHOW THIS CONTENT---------- */}
-                {completed == true &&
-                    <div>
-                        <h2>Tak for din bestilling</h2>
-                        
-                    </div>
-                }
+{latestOrder && latestOrder.order && latestOrder.order.orderlines &&
+                <section className="ReceiptGrid">
+
+                    <section className="griditem1">
+                        <Link to="/forside"><button>TAK FOR DIN BESTILLING</button></Link>
+                        <article>
+                            <p>Ordrenr. <span>{latestOrder.order.id}</span></p>
+
+                            {latestOrder.order.orderlines.map((item, i) => {
+                                return <div className="productline"><p className="left">Produkt</p> <span>{item.name}</span> <p className="middle">{item.quantity} stk.</p> <p className="right">DKK {item.price}</p></div>
+                            })}
+
+                            <p className="left">I alt</p><p className="right">DKK {latestOrder.order.total}</p>
+                        </article>
+                    </section>
+
+                    <section className="griditem2">
+                        <div>
+                            <h3>Faktureringsadresse</h3>
+                            <p>{latestOrder.order.firstname} {latestOrder.order.lastname}</p>
+                            <p>{latestOrder.order.address}</p>
+                            <p>{latestOrder.order.zipcode} {latestOrder.order.city}</p>
+                        </div>
+
+                        <div>
+                            <h3>Leveringsadresse</h3>
+                            <p>{latestOrder.order.firstname} {latestOrder.order.lastname}</p>
+                            <p>{latestOrder.order.address}</p>
+                            <p>{latestOrder.order.zipcode} {latestOrder.order.city}</p>
+                        </div>
+                    </section>
+
+                </section>
+            }
                 </div>
             }
             </section>
