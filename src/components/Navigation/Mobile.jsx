@@ -12,7 +12,7 @@ export default props => {
       <nav className="sidebar">
         <ul>
             <Link className="SideLink" to="/forside">FORSIDE</Link>
-            <Link className="SideLink" to="/om">SALGS- OG HANDELSB BETINGELSER</Link>
+            <Link className="SideLink" to="/terms">SALGS- OG HANDELSB BETINGELSER</Link>
             <Link className="SideLink" to="/login">LOGIN</Link>
             <Link className="SideLink" to="/search">SØG</Link>
             <br/>

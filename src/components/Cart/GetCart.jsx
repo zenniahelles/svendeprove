@@ -19,7 +19,7 @@ function GetCart(props) {
             const response = await fetch(url, options);
             const data = await response.json();
             setCart(data);
-        }
+            }
         catch (error) {
             console.log(error)
         }
@@ -74,7 +74,7 @@ function GetCart(props) {
             <section className="cartGrid" key={i}>
                 <figure><img src={item.image_fullpath} alt={item.name}></img></figure>
                 <article className="productDescription">
-                    <h3>{item.name}</h3>
+                    <h4>{item.name}</h4>
                         <div className="info">
                         <p>Antal:  <span>{item.quantity}</span></p>
                          <p>{(() => {
@@ -92,14 +92,14 @@ function GetCart(props) {
                         </div>
                 </article>
             </section>
-            <section className="CheckoutArea">
-            <p>BELØB <span>DKK</span></p><button className="cartbutton">RYD</button>
-            <h4>Prisen er inkl. moms</h4>
-            <Link to="/checkout"><button className="checkout">TIL KASSEN</button></Link>
-        </section>
         </>
             )
         })}
+        <section className="CheckoutArea">
+            <p>BELØB <span className="totalamount">DKK </span></p><button className="cartbutton">RYD</button>
+            <h4>Prisen er inkl. moms</h4>
+            <Link to="/checkout"><button className="checkout">TIL KASSEN</button></Link>
+        </section>
         </>
     )
 }

@@ -44,11 +44,11 @@ function Desktop(props) {
     <nav className='SideMenu'>
         {productgroups.items
           ? productgroups.items.map((item, i) => (
-              <div key={i} className='mainlink'>
+              <div key={i} className='mainlink mainlink1'>
                 <span>{item.title}</span>
-                <span>
+                <span className="Submenu">
                   {item.subgroups.map((item, i) => (
-                    <div key={i} className='submenu'>
+                    <div key={i} className='sublinks'>
                       <Link to="/productlist"><span id={item.id} onClick={(e)=>{props.setProductListID(e.target.id)}} className='sublink'>{item.title}</span></Link>
                     </div>
                   ))}
@@ -57,15 +57,16 @@ function Desktop(props) {
             ))
           : null}
           
-        <div className='mainlink'>
+        <div className='mainlink mainlink2'>
           <span>Brands</span>
+          <span className="Brandmenu">
           {brands.items
             ? brands.items.map((item, i) => (
-                <div key={i} className='submenu'>
-                   <Link to="/brand"><span id={item.id} onClick={(e)=>{props.setBrandID(e.target.id)}} className='sublink'>{item.title}</span></Link>
+                <div key={i} className='sublinks'>
+                   <Link to="/brand"><span id={item.id} onClick={(e)=>{props.setBrandID(e.target.id)}} className='sublink brandlink'>{item.title}</span></Link>
                 </div>
               ))
-            : null}
+            : null}</span>
         </div>
     </nav>
   );

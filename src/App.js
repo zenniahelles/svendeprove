@@ -14,11 +14,13 @@ import BrandDetails from './components/Brands/BrandDetails';
 import ProductListPage from './components/ProductList/ProductList';
 import Buy from './components/Forside/Buy';
 import GetCart from './components/Cart/GetCart';
+import Terms from './components/Terms/Terms';
+import OrderHistory from './components/OrderHistory/OrderHistory';
+import ProductView from './components/ProductList/ProductView';
 
 //Styles
 import './MediaQueries.scss'
 import './GlobalStyles.scss'
-
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
   const [loginData, setLoginData] = useState([])
   const [brandID, setBrandID] = useState()
   const [productListID, setProductListID] = useState()
+  const [productViewID, setProductViewID] = useState()
 
 
   async function doFetch(url){
@@ -59,7 +62,7 @@ function App() {
       <Switch>
 
       <Route path="/search">
-        <Search doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
+        <Search doFetch={doFetch} loginData={loginData}/>
         </Route>
 
       <Route path="/checkout">
@@ -78,12 +81,16 @@ function App() {
         <MultiFetch doFetch={doFetch}/>
         </Route>
 
+        <Route path="/productview">
+        <ProductView doFetch={doFetch} productViewID={productViewID} loginData={loginData}/>
+      </Route>
+
       <Route path="/productlist">
-        <ProductListPage doFetch={doFetch} productListID={productListID}/>
+        <ProductListPage doFetch={doFetch} productListID={productListID} setProductViewID={setProductViewID} loginData={loginData}/>
       </Route>
 
         <Route path="/brand">
-        <BrandDetails doFetch={doFetch} brandID={brandID}/>
+        <BrandDetails doFetch={doFetch} brandID={brandID} loginData={loginData}/>
         </Route>
 
         <Route path="/cart">
@@ -94,8 +101,16 @@ function App() {
         <GetCart doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
       </Route>
 
+        <Route path="/terms">
+          <Terms/>
+        </Route>
+
+        <Route path="/history">
+      <OrderHistory doFetch={doFetch} loginData={loginData} />
+        </Route>
+
         <Route path="/">
-        <Forside doFetch={doFetch}/>
+        <Forside doFetch={doFetch} loginData={loginData}/>
       </Route>
 
 

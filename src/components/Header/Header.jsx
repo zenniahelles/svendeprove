@@ -16,7 +16,7 @@ function Header() {
                 <img className="NavImage" src={Headerbg} alt="header"/>
                 <div className="Links">
                     <span><Link to="/">Forside</Link></span>
-                    <span><Link to="/">Salgs- og handelsbetingelser</Link></span>
+                    <span><Link to="/terms">Salgs- og handelsbetingelser</Link></span>
                     <Link to="/login"><button>Login</button></Link>
                 </div>
             </nav>

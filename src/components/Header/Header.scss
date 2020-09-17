@@ -1,4 +1,6 @@
 header{
+    margin-right:15px;
+    margin-left:15px;
 .HeaderGrid{
     display:grid;
     grid-template-columns: 65% 35%;
@@ -15,7 +17,7 @@ header{
         text-decoration:none;
         font-family: 'Titillium Web';
         padding:2px 25px 2px 25px;
-        font-size:1.1vw;
+        font-size:12pt;
         border:none;
         border-radius:2px;
         margin-left:20px;
@@ -85,6 +87,7 @@ header{
     img{
         max-width:18px;
         margin:0 8px 0 0;
+        margin-left:15px;
     }
     a{
         color:#00f9b6;

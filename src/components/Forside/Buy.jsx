@@ -35,9 +35,9 @@ function Buy(props) {
         }
     }
 
-    // Funktion til at fetche lande
+    // Funktion til at fetche produkter
     async function fetchProducts(){
-        const url = `https://api.mediehuset.net/stringsonline/productgroups/3`
+        const url = `https://api.mediehuset.net/stringsonline/productgroups/2`
         let data = await props.doFetch(url);
         setBuyData(data.group.products)
     }
