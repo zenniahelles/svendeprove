@@ -32,6 +32,7 @@ function Header() {
 
         <section className="Breadcrumbs">
         <img src={Home} className="Home" alt="home-icon"/><Link to="/">Forside</Link>
+        <Link to="/history"><h2 className="historylink">Odrehistorik</h2></Link>
         </section>
         </header>
     )

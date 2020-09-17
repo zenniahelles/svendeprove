@@ -1,8 +1,17 @@
 import React, {useState, useEffect} from 'react'
+import './OrderHistory.scss'
 
 function OrderHistory(props){
 
     const [historyData, setHistoryData] = useState([])
+
+    //Laver timestamp om til en dato der kan læses
+
+    const convertTime = (timestamp) => {
+        let date = new Date(timestamp * 1000)
+        let converted = date.toLocaleString("en-GB")
+        return converted 
+}
 
     //funktion til at hente ordre-liste
 
@@ -13,17 +22,16 @@ function OrderHistory(props){
             }
         }
         try {
-            const url = `https://api.mediehuset.net/stringsonline/orders/`
+            const url = `https://api.mediehuset.net/stringsonline/orders`
             const response = await fetch(url, options);
             const data = await response.json();
-            console.log(data)
             setHistoryData(data)
         }
-        
         catch (error) {
             console.log(error)
         }
     }
+console.log(historyData)
 
 useEffect(() => {
     if (props.loginData.access_token){
@@ -33,17 +41,19 @@ useEffect(() => {
 
 //returnerer ud på siden:
     return (
-        <section>
+        props.loginData.access_token ? 
+        <section className="History">
             {historyData.items && historyData.items.map((item, index) =>{
                return (
-                <div key={index}>
-                    <p>{item.created}</p>
-                    <p>DKK {item.total},00</p>
-                    <p>Ordrenr. {item.id}</p>
+                <div key={index} className="HistoryGrid">
+                    <p className="item1">{convertTime(item.created)}</p>
+                    <p className="item2">DKK {item.total},00</p>
+                    <p className="item3">Ordrenr. <span>{item.id}</span></p>
                 </div>
                )
             })}
         </section>
+        : <h2>Du skal være logget ind får at se ordrehistorik</h2>
     )
 }
 

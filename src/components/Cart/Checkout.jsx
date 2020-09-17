@@ -22,7 +22,8 @@ function Checkout(props) {
         formData.append('email', values.email)
         formData.append('phone', values.phone)
         formData.append('status', 1);
-//Poster til APIet
+
+//Poster ens bestilling til APIet
         let options = {
             method: 'POST',
             body: formData,
@@ -46,7 +47,7 @@ function Checkout(props) {
     // Returner HTML
     return (
         <div> 
-            <section className="Tilmelding">
+            <section className="Kasse">
             <h2>Kasse</h2>
             {!props.loginData.access_token ? <div><p>Du skal være logget ind for at kunne tilmelde dig.</p><Link to="/login"><button>Log Ind</button></Link></div> : 
         <div>
@@ -146,9 +147,8 @@ function Checkout(props) {
 {/* ---------IF SUBMITTED, SHOW THIS CONTENT---------- */}
                 {completed == true &&
                     <div>
-                        <h2>Du er nu tilmeldt Rørdal Run</h2>
-                        <p>Mange tak for din tilmelding. Du vil modtage en e-mail fra os med dit løbenummer, samt informationer vedr. Rørdal Run.</p>
-                        <p>Tak og vi ses!</p>
+                        <h2>Tak for din bestilling</h2>
+                        
                     </div>
                 }
                 </div>

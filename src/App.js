@@ -4,7 +4,6 @@ import Forside from './components/Forside/Forside';
 import Footer from './components/Footer/Footer'
 import Desktop from './components/Navigation/Desktop';
 import Mobile from './components/Navigation/Mobile';
-import MultiFetch from './components/MultiFetch/MultiFetch';
 import Ratings from './components/Ratings/Ratings';
 import Login from './components/Login/Login';
 import Checkout from './components/Cart/Checkout';
@@ -77,10 +76,6 @@ function App() {
         <Ratings doFetch={doFetch} loginData={loginData}/>
         </Route>
 
-      <Route path="/multifetch">
-        <MultiFetch doFetch={doFetch}/>
-        </Route>
-
         <Route path="/productview">
         <ProductView doFetch={doFetch} productViewID={productViewID} loginData={loginData}/>
       </Route>
@@ -90,11 +85,11 @@ function App() {
       </Route>
 
         <Route path="/brand">
-        <BrandDetails doFetch={doFetch} brandID={brandID} loginData={loginData}/>
+        <BrandDetails doFetch={doFetch} brandID={brandID} loginData={loginData} setProductViewID={setProductViewID}/>
         </Route>
 
         <Route path="/cart">
-        <Buy doFetch={doFetch} loginData={loginData} setLoginData={setLoginData}/>
+        <Buy doFetch={doFetch} loginData={loginData} setLoginData={setLoginData} setProductViewID={setProductViewID} productViewID={productViewID}/>
         </Route>      
         
         <Route path="/getcart">
@@ -110,7 +105,7 @@ function App() {
         </Route>
 
         <Route path="/">
-        <Forside doFetch={doFetch} loginData={loginData}/>
+        <Forside doFetch={doFetch} loginData={loginData} setProductViewID={setProductViewID} productViewID={productViewID}/>
       </Route>
 
 

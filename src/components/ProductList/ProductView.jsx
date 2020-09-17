@@ -52,7 +52,7 @@ export default function ProductView(props) {
     return (
       <div>
         {product && 
-          <div className="Brand">
+          <div className="ProductView">
 
             <article>
                 <img src={product.item.image.fullpath} alt="product"/>

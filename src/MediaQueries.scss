@@ -47,7 +47,6 @@ grid-template-columns: auto;
     display: flex;
     justify-content: space-around;
     margin: 0;
-    margin-top:80px;
     list-style: none;
     .mainlink{
         text-align: center;
@@ -103,6 +102,9 @@ grid-template-columns: auto;
         }
     }
 }
+.History{
+    padding-left:0px;
+}
 
 
 }
@@ -115,5 +117,8 @@ grid-template-columns: auto;
     }
     .mobileMenu{
         display:block;
+    }
+    .SideMenu{
+        margin-top:80px;
     }
 }

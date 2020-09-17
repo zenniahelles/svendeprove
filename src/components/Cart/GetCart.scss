@@ -2,7 +2,8 @@
     display:grid;
     grid-template-columns: 1fr 5fr;
     font-size:10pt;
-    min-height:100px;
+    min-height:120px;
+    height:auto;
     h3{
         color:white;
         font-size:15pt;
@@ -31,7 +32,11 @@
         border:1px solid rgba(128, 128, 128, 0.301);
         margin-bottom:25px;
         position:relative;
+        h4{
+            padding-top:20px;
+        }
         .info{
+            padding-top:13px;
             display:inline-block;
             position:absolute;
             right:0;

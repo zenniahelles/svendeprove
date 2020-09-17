@@ -35,8 +35,7 @@ function Forside(props) {
       <button>LÆS MERE</button>
     </article>
 </section>
-
-<Buy doFetch={props.doFetch} loginData={props.loginData}/>
+<Buy doFetch={props.doFetch} loginData={props.loginData} setProductViewID={props.setProductViewID} productViewID={props.productViewID}/>
 
 </div>
 </>

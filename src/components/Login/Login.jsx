@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Login.scss'
+import { Link } from 'react-router-dom'
 
 function Login(props){
 
@@ -63,7 +64,12 @@ function Login(props){
                 <button onClick={(e)=> {getToken(e)}}>Log ind</button>
             </>
             }
-            {props.loginData.user_id && <button onClick={(e) => {logOut(e)}}>Log ud</button>
+            {props.loginData.user_id && 
+            <>
+            <Link to="/history"><button>Se ordrehistorik</button></Link>
+            
+            <button onClick={(e) => {logOut(e)}}>Log ud</button>
+            </>
             }
             
         </form>

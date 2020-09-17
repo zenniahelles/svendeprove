@@ -75,7 +75,7 @@ export default function BrandDetails(props) {
             
               <article className="productDescription">
                 <h4>{item.name}</h4>
-                <p>{item.description_short} <Link>Læs mere</Link></p>
+                <p>{item.description_short} <Link to="productview"><span id={item.id} onClick={(e)=>{props.setProductViewID(e.target.id)}}>Læs mere</span></Link></p>
                 
                 {(() => {
                   if (item.offerprice == "0.00") {
