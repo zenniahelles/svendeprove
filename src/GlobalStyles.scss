@@ -1,5 +1,13 @@
 $accent-color: #00f9b6;
 
+button{
+    cursor:pointer;
+    outline: none;
+}
+
+input{
+    outline: none;
+}
 .SiteGrid{
     display:grid;
     grid-template-columns: 1fr 8fr;
@@ -16,7 +24,6 @@ html{
     }
     
 .Content{
-    padding:10px;
     box-sizing:border-box;
     width:100%;
 }
@@ -81,11 +88,22 @@ html{
             }
             form{
                 display:inline-block;
+                label{
+                    border:1px solid rgba(128, 128, 128, 0.438);
+                    padding:5.8px 10px 8px 10px;
+                    border-radius: 3px 0 0 3px;
+                    border-right:none;
+                }
                 input{
-                    width:35px;
-                    height:30px;
-                    margin-left:10px;
+                    width:33px;
+                    height:33px;
                     margin-right:10px;
+                    background:#00f9b750;
+                    border:none;
+                    border-radius: 0 3px 3px 0;
+                    color:white;
+                    padding-left:8px;
+                    padding-bottom:2px;
                 }
             }
         }
@@ -96,7 +114,12 @@ html{
         font-family: 'Titillium Web';
         padding:7px 30px 8.9px 30px;
         border:none;
-        border-radius:0 3px 3px 0px;
+        border-radius:3px 3px 3px 3px;
         color:white;
+        transition: 0.3s;
+        &:hover{
+            background:#d10062b7;
+            
+        }
     }
     }

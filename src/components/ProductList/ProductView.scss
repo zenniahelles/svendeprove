@@ -1,0 +1,61 @@
+.ProductView{
+    border:1px solid rgba(255, 255, 255, 0.178);
+    color:white;
+    .ProductGrid{
+        padding:20pt;
+        display:grid;
+        grid-template-columns: 3fr 2fr;
+        grid-gap:50px;
+        box-sizing:border-box;
+        .griditem2{
+            text-align:right;
+            form{
+                label{
+                    border:1px solid rgba(128, 128, 128, 0.438);
+                    padding:5.8px 10px 8px 10px;
+                    border-radius: 3px 0 0 3px;
+                    border-right:none;
+                }
+                input{
+                    width:33px;
+                    height:33px;
+                    background:#00f9b750;
+                    border:none;
+                    border-radius: 0 3px 3px 0;
+                    color:white;
+                    padding:5px;
+                    padding-left:8px;
+                    padding-bottom:2.8px;
+                    margin-bottom:15px;
+                }
+            }
+        }
+        img{
+            width:100%;
+            background:white;
+            max-height:250px;
+            object-fit:contain;
+        }
+        form{
+            display:block;
+        }
+        .price{
+            margin-top:25px;
+            display:inline-block;
+            padding:10px 17px 10px 17px;
+            color:white;
+            border:1px solid rgba(104, 104, 104, 0.562);
+            border-radius: 3px 0 0 3px;
+        }
+button{
+    background:#d10061;
+    text-decoration:none;
+    font-family: 'Titillium Web';
+    padding:10px 23px 10px 23px;
+    border:none;
+    border-radius:3px;
+    color:white;
+    margin-left:10px;
+}
+    }
+}

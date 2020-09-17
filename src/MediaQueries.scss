@@ -41,27 +41,28 @@
 .SiteGrid{
 grid-template-columns: auto;
 }
+.Content{
+    margin-top:20px;
+}
 .SideMenu{
     width:100%;
     flex-flow: row wrap;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
     margin: 0;
+    padding:5px;
     list-style: none;
+    box-sizing:border-box;
     .mainlink{
         text-align: center;
         margin:2px;
         margin-top:8px;
-        
     }
 
     .Brandmenu{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        list-style: none;
+        display: grid;
+        grid-template-columns:auto auto;
         margin:auto;
-        width:40%;
         .sublinks{
             padding:0px 5px;
             margin:0;
@@ -71,7 +72,6 @@ grid-template-columns: auto;
             text-align: center; 
         }
         .brandlink{
-            width: 40%;
             color:white;
             font-size:11.5pt;
             &:hover{
@@ -105,15 +105,45 @@ grid-template-columns: auto;
 .History{
     padding-left:0px;
 }
-
-
 }
 
 
 @media only screen and (max-width: 850px) {
-
+    .Forside{
+        .Hero{
+            grid-template-columns: 45% 55%;
+            article{
+            h2{
+                font-size:22pt;
+            }
+            .description{
+                font-size:14pt;
+                padding:0;
+                line-height:27pt;
+            }
+        }
+        }
+    }
     header{
+        .HeaderGrid{
+            grid-template-columns: 1fr;
+            margin-top:24px;
+            .Search{
+                text-align:right;
+                margin-right:50px;
+                button{
+                    display:none;
+                }
+                .contact{
+                    display:none;
+                }
+                .Cart{
+                    max-height:70px;
+                }
+            }
+            .Links{
         display:none;
+    }}
     }
     .mobileMenu{
         display:block;
@@ -121,4 +151,192 @@ grid-template-columns: auto;
     .SideMenu{
         margin-top:80px;
     }
+    .Kasse{
+        .FormGrid{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    .SideMenu{
+        margin-top:0;
+        .mainlink{
+        font-size:10pt;
+    }
+    .Submenu, .Brandmenu{
+    .sublink{
+        font-size:10pt;
+    }}
+}
+}
+
+@media only screen and (max-width: 768px) {
+
+    .Products{
+        .productGrid{
+            grid-template-columns:2fr 3fr;
+            .productDescription{
+                h4{
+                    margin-top:0;
+                }
+                .price{
+                    display:inline-block;
+                }
+                button{
+                    display:block;
+                    margin-top:15px;
+                    margin-bottom:15px;
+                }
+                form{
+                    display:block;
+                    span{
+                        padding:0;
+                    }
+                }
+            }
+        }
+    }
+    .SideMenu{
+        grid-template-columns:1fr 1fr 1fr;
+        .Brandmenu{
+            grid-template-columns:auto auto auto;
+        }
+    }
+
+    .Cart{
+        .cartGrid{
+            grid-template-columns: 1fr;
+            width:70%;
+            margin:auto;
+            h4{
+                margin:0;
+                padding:15px;
+                font-size:12pt;
+                text-align:center;
+                border-bottom:0;
+                border-right:1px solid rgba(128, 128, 128, 0.301);
+                border-left:1px solid rgba(128, 128, 128, 0.301);
+            }
+            figure{
+                padding: 20%;
+                width: 60%;
+                margin-bottom:0;
+                img{
+                    width: 60%;
+                }
+            }
+            .productDescription{
+                text-align:center;
+                border-left:1px solid rgba(128, 128, 128, 0.301);
+            .info{
+                position:unset;
+                padding-top:0;
+            }
+            p{
+                margin-right:10px;
+            }
+            button{
+                margin-bottom:10px;
+            }
+        }
+        }
+    }
+
+    footer{
+        img{
+            width:58%;
+        }
+    }
+    .Brand{
+        .brandBox{
+            grid-template-columns: 1fr;
+            img{
+                max-width:250px;
+                margin:auto;
+            }
+}
+    }
+}
+@media only screen and (max-width: 650px) {
+.Cart{
+    .cartGrid{
+        width:85%;
+    }
+}
+
+    .Products{
+    .productGrid{
+        grid-template-columns: 1fr;
+        figure{
+            padding: 20%;
+            width: 60%;
+            margin-bottom:0;
+            img{
+                width: 60%;
+            }
+        }
+.productDescription{
+    .price{
+        display:inline-block;
+    }
+    button{
+        display:inline-block;
+        margin-top:15px;
+        margin-bottom:15px;
+    }
+    form{
+        display:inline-block;
+        span{
+            padding:0;
+            margin-left:15px;
+        }
+    }
+}
+    }
+}
+
+    .Kasse{
+        text-align:center;
+        .FormGrid{
+            grid-template-columns: 1fr;
+            margin:auto;
+            width:100%;
+            .order{
+                margin:auto;
+            }
+            .disclaimer{
+               margin:auto;
+               max-width:300px;
+            }
+        }
+    }
+
+    .ProductView{
+        .ProductGrid{
+            grid-template-columns: 1fr;
+            grid-gap:20px;
+            .griditem2{
+                text-align:center;
+                form{
+                    label{
+                        border:1px solid rgba(128, 128, 128, 0.438);
+                        padding:5.8px 10px 8px 10px;
+                        border-radius: 3px 0 0 3px;
+                        border-right:none;
+                    }
+                    input{
+                        width:33px;
+                        height:33px;
+                        background:#00f9b750;
+                        border:none;
+                        border-radius: 0 3px 3px 0;
+                        color:white;
+                        padding:5px;
+                        padding-left:8px;
+                        padding-bottom:2.8px;
+                        margin-bottom:15px;
+                    }
+                }
+            }
+        }
+    }
+
 }

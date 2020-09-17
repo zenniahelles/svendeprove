@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './ProductView.scss'
+import '../ProductList/ProductView.scss'
 import '../../GlobalStyles.scss'
 
-export default function ProductView(props) {
+export default function Featured(props) {
 
     const [product, setProduct ] = useState()
     const [items, setItems] = useState([]);
@@ -37,7 +37,7 @@ export default function ProductView(props) {
 
     //funktion til at fetche brands ud fra ID
     async function fetchProduct(id){
-        const url = `https://api.mediehuset.net/stringsonline/products/${id}`
+        const url = `https://api.mediehuset.net/stringsonline/products/11`
         let data = await props.doFetch(url)
         setProduct(data)
         
@@ -52,6 +52,13 @@ export default function ProductView(props) {
     // returnerer ud på siden 
     return (
       <div>
+           {/* {product && product.item.gallery && product.item.gallery.map((item, index) =>
+		<div key={index}>
+            <figure><img src={item.fullpath} /></figure>
+		</div>
+	            )
+            } */}
+
         {product && 
           <div className="ProductView">
 
@@ -77,9 +84,7 @@ export default function ProductView(props) {
                   }
                 })()}
 
-{!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
-                        <>
-                        <form key={product.item.id}>
+                <form key={product.item.id}>
                         <input type="hidden" name="product_id" value={product.item.id} />
                         <input type="hidden" name="product_name" value={product.item.title} />
                         <input type="hidden" name="price" value={product.item.price} />
@@ -92,10 +97,8 @@ export default function ProductView(props) {
                                 id: product.item.id,
                                 quantity: e.target.value
                             })} />
-                        
-                        <button type="button" onClick={() => toCart()}>Læg i kurv</button></form></>
-                        }
-                       
+                        <button type="button" onClick={() => toCart()}>Læg i kurv</button>
+                    </form>
                     <p>{product.item.stock} på lager</p>
                     <p>Bedømmelse: {product.item.rating}/5</p>
             </article>

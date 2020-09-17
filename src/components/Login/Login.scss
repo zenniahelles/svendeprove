@@ -11,6 +11,9 @@
         font-weight:bold;
         margin:0;
     }
+    .tohistory{
+        text-decoration:none;
+    }
     h2{
         font-weight:200;
         margin:0;
@@ -45,5 +48,9 @@
             margin-top:20px;
             color:#2c3737;
             font-weight:bold;
+            transition: 0.3s;
+            &:hover{
+                background:#00f9b7b9;
+            }
         }
 }

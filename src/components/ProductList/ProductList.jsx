@@ -73,6 +73,8 @@ export default function ProductListPage(props) {
                   }
                 })()}
 
+{!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
+                        <>
                         <form key={item.id}>
                         <input type="hidden" name="product_id" value={item.id} />
                         <input type="hidden" name="product_name" value={item.title} />
@@ -86,8 +88,10 @@ export default function ProductListPage(props) {
                                 id: item.id,
                                 quantity: e.target.value
                             })} />
-                        <button type="button" onClick={() => toCart()}>Læg i kurv</button>
-                        </form>
+                        
+                        <button type="button" onClick={() => toCart()}>Læg i kurv</button></form></>
+                        }
+                        <span>{item.stock} på lager</span>
                         
               </article>
         </div>

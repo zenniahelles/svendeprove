@@ -22,8 +22,10 @@ function Header() {
             </nav>
 
             <section className="Search">
+            <div className="contact">
             <img src={Mail} className="Mail" alt="mail-icon"/><span>SALES@STRINGSONLINE.COM</span>
             <img src={Phone} className="Phone" alt="phone-icon"/><span>+45 98 12 22 68</span>
+            </div>
             <Link to="getcart"><img src={Cart} className="Cart" alt="cart-icon"/></Link>
             <Link to ="/search"><button>Søg</button></Link>
             </section>

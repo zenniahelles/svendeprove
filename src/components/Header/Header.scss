@@ -23,6 +23,10 @@ header{
         border-radius:2px;
         margin-left:20px;
         color:#2c3737;
+        transition: 0.3s;
+        &:hover{
+            background:#00f9b7b9;
+        }
     }
 .TopNav{
     position:relative;
@@ -45,6 +49,9 @@ header{
                 color:white;
                 text-decoration:none;
                 font-weight:200;
+                &:hover{
+                    color:rgba(255, 255, 255, 0.616);
+                }
             }
         }
     }
@@ -58,6 +65,8 @@ header{
         font-size:9pt;
         padding:10px;
     }
+    .contact{
+        display:inline-block;
     .Mail{
         max-height:15px;
     }
@@ -65,6 +74,7 @@ header{
         max-height:22px;
         padding-left:8px;
     }
+}
     .Cart{
         max-height:25px;
         padding-left:10px;
@@ -97,6 +107,9 @@ header{
         text-decoration:none;
         font-weight:200;
         font-size:11pt;
+        &:hover{
+            color:white;
+        }
     }
     .historylink{
         display:inline-block;
@@ -104,6 +117,9 @@ header{
         right:15px;
         margin:0;
         font-size:13pt;
+        &:hover{
+            color:white;
+        }
     }
 }
 }

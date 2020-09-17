@@ -32,7 +32,7 @@ function Forside(props) {
       <h2><span>Martin</span> GPC-11E</h2>
       <h3>SERIES ELECTRO ACOUSTIC</h3>
       <h2 className="description">SE DEN NYE GENERATION HALVACOUSTISKE</h2>
-      <button>LÆS MERE</button>
+      <Link to="/featured"><button>LÆS MERE</button></Link>
     </article>
 </section>
 <Buy doFetch={props.doFetch} loginData={props.loginData} setProductViewID={props.setProductViewID} productViewID={props.productViewID}/>

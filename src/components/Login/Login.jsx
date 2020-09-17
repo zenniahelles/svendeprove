@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 function Login(props){
 
-
     const [username, setUsername] = useState("Indtast brugernavn")
     const [password, setPassword] = useState("Indtast password")
     const [token, setToken] = useState([])
@@ -66,7 +65,7 @@ function Login(props){
             }
             {props.loginData.user_id && 
             <>
-            <Link to="/history"><button>Se ordrehistorik</button></Link>
+            <Link className="tohistory" to="/history"><button>Se ordrehistorik</button></Link>
             
             <button onClick={(e) => {logOut(e)}}>Log ud</button>
             </>

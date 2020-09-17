@@ -49,7 +49,7 @@ function Checkout(props) {
         <div> 
             <section className="Kasse">
             <h2>Kasse</h2>
-            {!props.loginData.access_token ? <div><p>Du skal være logget ind for at kunne tilmelde dig.</p><Link to="/login"><button>Log Ind</button></Link></div> : 
+            {!props.loginData.access_token ? <div><p>Du skal være logget ind for at kunne købe.</p><Link to="/login"><button>Log Ind</button></Link></div> : 
         <div>
                     {completed == false && <div>
 {/* -------FORM STARTS HERE-------- */}

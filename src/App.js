@@ -20,6 +20,7 @@ import ProductView from './components/ProductList/ProductView';
 //Styles
 import './MediaQueries.scss'
 import './GlobalStyles.scss'
+import Featured from './components/Forside/Featured';
 
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
       <Switch>
 
       <Route path="/search">
-        <Search doFetch={doFetch} loginData={loginData}/>
+        <Search doFetch={doFetch} loginData={loginData} setProductViewID={setProductViewID} productViewID={productViewID}/>
         </Route>
 
       <Route path="/checkout">
@@ -102,6 +103,10 @@ function App() {
 
         <Route path="/history">
       <OrderHistory doFetch={doFetch} loginData={loginData} />
+        </Route>
+
+        <Route path="/featured">
+        <Featured doFetch={doFetch}/>
         </Route>
 
         <Route path="/">

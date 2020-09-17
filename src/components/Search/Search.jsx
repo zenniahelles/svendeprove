@@ -122,7 +122,7 @@ async function getSearchProducts(token) {
             
             <article className="productDescription">
             <h4>{item.name}</h4>
-            <p>{item.description_short} <Link>Læs mere</Link></p>
+            <p>{item.description_short} <Link to="productview"><span id={item.id} onClick={(e)=>{props.setProductViewID(e.target.id)}}>Læs mere</span></Link></p>
             {(() => {
                                 if (item.offerprice == "0.00") {
                                 return (
@@ -135,6 +135,8 @@ async function getSearchProducts(token) {
                                 }
                             })()}
 
+{!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
+                        <>
                         <form key={item.id}>
                         <input type="hidden" name="product_id" value={item.id} />
                         <input type="hidden" name="product_name" value={item.title} />
@@ -148,8 +150,10 @@ async function getSearchProducts(token) {
                                 id: item.id,
                                 quantity: e.target.value
                             })} />
-                        <button type="button" onClick={() => toCart()}>Læg i kurv</button>
-                        </form>
+                        
+                        <button type="button" onClick={() => toCart()}>Læg i kurv</button></form></>
+                        }
+                        <span>{item.stock} på lager</span>
 
             </article>
                                     </div></div>
