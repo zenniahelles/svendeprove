@@ -50,30 +50,30 @@ export default function ProductListPage(props) {
 // returnerer ud på siden 
     return (
       <>
-          <div className="Products">
+        <section className="Products">
         {productList && productList.map((item, index) => {
-          return(
-            <div className="productGrid" key={index}>
+        return(
+        <section className="productGrid" key={index}>
           
-          <figure><img src={item.image_fullpath} alt='product'/></figure>
+        <figure><img src={item.image_fullpath} alt='product'/></figure>
             
-              <article className="productDescription">
+            <article className="productDescription">
                 <h4>{item.name}</h4>
                 <p>{item.description_short} <Link to="productview"><span id={item.id} onClick={(e)=>{props.setProductViewID(e.target.id)}}>Læs mere</span></Link></p>
                 
-                {(() => {
-                  if (item.offerprice == "0.00") {
-                  return (
-                      <p className="price">Pris: DKK {item.price}</p>
-                  )
-                  } else {
-                  return (
-                      <p className="price">Pris: DKK {item.offerprice}</p>
-                  )
-                  }
+            {(() => {
+                if (item.offerprice == "0.00") {
+                return (
+                    <p className="price">Pris: DKK {item.price}</p>
+                )
+                } else {
+                return (
+                    <p className="price">Pris: DKK {item.offerprice}</p>
+                )
+                }
                 })()}
 
-{!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
+        {!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
                         <>
                         <form key={item.id}>
                         <input type="hidden" name="product_id" value={item.id} />
@@ -93,13 +93,13 @@ export default function ProductListPage(props) {
                         }
                         <span>{item.stock} på lager</span>
                         
-              </article>
-        </div>
+            </article>
+        </section>
             )
     })}   
             
-          </div>
-         
-      </>
+        </section>
+
+    </>
     );
-  }
+}

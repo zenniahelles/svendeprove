@@ -16,26 +16,31 @@ import GetCart from './components/Cart/GetCart';
 import Terms from './components/Terms/Terms';
 import OrderHistory from './components/OrderHistory/OrderHistory';
 import ProductView from './components/ProductList/ProductView';
+import Featured from './components/Forside/Featured';
 
 //Styles
 import './MediaQueries.scss'
 import './GlobalStyles.scss'
-import Featured from './components/Forside/Featured';
+
 
 
 function App() {
+
+  //useEffect til at hente user token og sætte den som login data som kan passes som prop
+
   useEffect(() => {
     if(sessionStorage.getItem("token")){
       setLoginData(JSON.parse(sessionStorage.getItem("token")))
     }
   }, [])
 
+  //states til de funktioner der skal passes 
   const [loginData, setLoginData] = useState([])
   const [brandID, setBrandID] = useState()
   const [productListID, setProductListID] = useState()
   const [productViewID, setProductViewID] = useState()
 
-
+//fetch funtion 
   async function doFetch(url){
     try {
         const response = await fetch(url)
@@ -49,16 +54,16 @@ function App() {
 
   return (
     <Router>
-      <div className="mobileMenu">
+      <section className="mobileMenu">
       <Mobile pageWrapId={"page-wrap"} outerContainerId={"App"} />
-      <div id="page-wrap"></div>
-      </div>
-      <Header/>
-      <div className="SiteGrid">
-      <Desktop setBrandID={setBrandID} setProductListID={setProductListID}/>
+      <section id="page-wrap"></section>
+      </section>
+      <Header loginData={loginData}/>
+      <section className="SiteGrid">
+      <Desktop setBrandID={setBrandID} setProductListID={setProductListID} doFetch={doFetch}/>
 
 {/* ----CONTENT CONTROL---- */}
-<div className="Content">
+<section className="Content">
       <Switch>
 
       <Route path="/search">
@@ -116,8 +121,8 @@ function App() {
 
 
       </Switch>
-</div>
-</div>
+</section>
+</section>
 {/* ----CONTENT CONTROL END---- */}
       <Footer/>
     </Router>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom'
 import './Checkout.scss'
@@ -14,7 +14,6 @@ function Checkout(props) {
     const { register, handleSubmit, errors } = useForm();
 
 // --- Hent Seneste køb
-
     const getLatestOrder = async () => {
         let options = {
             method: "GET",
@@ -29,7 +28,6 @@ function Checkout(props) {
             console.log(data)
             setLatestOrder(data)
         }
-
         catch (error) {
             console.log(error)
         }
@@ -70,7 +68,7 @@ function Checkout(props) {
             console.error(error);
         } 
     }
-
+//useEffect hook til at opdatere når købet er gennemført. Vis derefter Latest Order
     useEffect(() => {
         if (orderComplete.status == true) {
             getLatestOrder()

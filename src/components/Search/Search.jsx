@@ -10,7 +10,6 @@ export default function Search(props) {
 
     const [products, setProducts] = useState(true)
     const [allProducts, setAllProducts] = useState([])
-    const [searchProducts, setSearchProducts] = useState([])
     const [items, setItems] = useState([]);
 
 // Funktion til at lægge ting i kurv 
@@ -57,7 +56,7 @@ async function getSearchProducts(token) {
 
     useEffect(() => {
     }, [products])
-
+//tjekker om brugeren er logget ind. Så sætter den loading til false og viser produkter
     useEffect(() => {
         getSearchProducts(props.loginData && props.loginData.access_token).then((data) => {
             setProducts(data);
@@ -66,7 +65,7 @@ async function getSearchProducts(token) {
     }, [props.loginData && props.loginData.access_token]);
 
 
-// search function
+// search get function
     async function getSearchResult() {
         let headers = {
             'Authorization': `Bearer ${props.loginData && props.loginData.access_token}`
@@ -84,6 +83,7 @@ async function getSearchProducts(token) {
         }
     }
 
+
 //returnerer ud på siden
 
     return (
@@ -98,32 +98,28 @@ async function getSearchProducts(token) {
                         onChange={(e) => setQuery(e.target.value)}
                         autoFocus />
                     <button onClick={() => { getSearchResult()}}>SØG</button>
-
-                    {products && console.log( "Count:", allProducts.count)}
-                    {searchProducts && console.log("Count Search:", searchProducts.num_items)}
-                        
-                    {allProducts.count && <span>Fandt <b>{allProducts.count} </b> resultater</span>}                                
+                
                     {allProducts.num_items && <span>Fandt <b>{allProducts.num_items} </b> resultater</span>}                
 
                 </div>
-
+{/* Loader mens den søger i APIet */}
                 {isLoading ? 
                     (
-                        <h2>Henter produkter</h2>
+                    <h2>Henter produkter</h2>
                     ) : (
-                        <div>
-
-                            {products && products.map((item, i) => {
-                                return (
-                                    <div className="Products">
-                                    <div className="productGrid" key={i}>
-                                    <figure><img src={item.image_fullpath} alt='product'/>
-                                    </figure>
+// Når den er færdig med at søge, vis produkter:
+                    <section>
+                        {products && products.map((item, i) => {
+                            return (
+                                <section className="Products">
+                                <section className="productGrid" key={i}>
+                                <figure><img src={item.image_fullpath} alt='product'/>
+                                </figure>
             
-            <article className="productDescription">
-            <h4>{item.name}</h4>
-            <p>{item.description_short} <Link to="productview"><span id={item.id} onClick={(e)=>{props.setProductViewID(e.target.id)}}>Læs mere</span></Link></p>
-            {(() => {
+                                <article className="productDescription">
+                                <h4>{item.name}</h4>
+                                <p>{item.description_short} <Link to="productview"><span id={item.id} onClick={(e)=>{props.setProductViewID(e.target.id)}}>Læs mere</span></Link></p>
+                                {(() => {
                                 if (item.offerprice == "0.00") {
                                 return (
                                     <p className="price">Pris: DKK {item.price}</p>
@@ -135,7 +131,7 @@ async function getSearchProducts(token) {
                                 }
                             })()}
 
-{!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
+                {!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
                         <>
                         <form key={item.id}>
                         <input type="hidden" name="product_id" value={item.id} />
@@ -151,17 +147,17 @@ async function getSearchProducts(token) {
                                 quantity: e.target.value
                             })} />
                         
-                        <button type="button" onClick={() => toCart()}>Læg i kurv</button></form></>
+                        <button className="productbutton" type="button" onClick={() => toCart()}>Læg i kurv</button></form></>
                         }
                         <span>{item.stock} på lager</span>
-
-            </article>
-                                    </div></div>
+                        </article>
+                        </section>
+                        </section>
                                 
                                 )
                             })}
                             
-                        </div>
+                        </section>
                     )
                 }
             </section>

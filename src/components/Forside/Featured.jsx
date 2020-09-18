@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import '../ProductList/ProductView.scss'
 import '../../GlobalStyles.scss'
 
@@ -51,16 +50,9 @@ export default function Featured(props) {
 
     // returnerer ud på siden 
     return (
-      <div>
-           {/* {product && product.item.gallery && product.item.gallery.map((item, index) =>
-		<div key={index}>
-            <figure><img src={item.fullpath} /></figure>
-		</div>
-	            )
-            } */}
-
+      <>
         {product && 
-          <div className="ProductView">
+          <section className="ProductView">
 
             <section className="ProductGrid">
 
@@ -105,8 +97,8 @@ export default function Featured(props) {
 
             </section>
             
-          </div>
+          </section>
          }
-      </div>
+      </>
     );
   }

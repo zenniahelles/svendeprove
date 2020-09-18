@@ -21,7 +21,7 @@ function Desktop(props) {
     let data = await doFetch(url);
     setProductgroups(data.productgroups);
   }
-
+//Fetcher produkter en gang når siden mounter
   useEffect(() => {
     fetchProductgroups();
   }, []);
@@ -42,9 +42,8 @@ function Desktop(props) {
 // return -----------------------------------------//
   return (
     <nav className='SideMenu'>
-        {productgroups.items
-          ? productgroups.items.map((item, i) => (
-              <div key={i} className='mainlink mainlink1'>
+        {productgroups.items ? productgroups.items.map((item, i) => (
+              <section key={i} className='mainlink mainlink1'>
                 <span>{item.title}</span>
                 <span className="Submenu">
                   {item.subgroups.map((item, i) => (
@@ -53,11 +52,11 @@ function Desktop(props) {
                     </div>
                   ))}
                 </span>
-              </div>
+              </section>
             ))
           : null}
           
-        <div className='mainlink mainlink2'>
+        <section className='mainlink mainlink2'>
           <span>Brands</span>
           <span className="Brandmenu">
           {brands.items
@@ -67,7 +66,7 @@ function Desktop(props) {
                 </div>
               ))
             : null}</span>
-        </div>
+        </section>
     </nav>
   );
 }

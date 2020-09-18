@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './ProductView.scss'
 import '../../GlobalStyles.scss'
 
@@ -51,9 +50,9 @@ export default function ProductView(props) {
 
     // returnerer ud på siden 
     return (
-      <div>
+      <>
         {product && 
-          <div className="ProductView">
+          <section className="ProductView">
 
             <section className="ProductGrid">
 
@@ -66,18 +65,18 @@ export default function ProductView(props) {
             <article className="griditem2">
             <img src={product.item.brand_image} alt="product"/>
             {(() => {
-                  if (product.item.offerprice == "0.00") {
-                  return (
-                      <p className="price">Pris: DKK {product.item.price}</p>
-                  )
-                  } else {
-                  return (
-                      <p className="price">Pris: DKK {product.item.offerprice}</p>
-                  )
-                  }
+                if (product.item.offerprice == "0.00") {
+                return (
+                    <p className="price">Pris: DKK {product.item.price}</p>
+                )
+                } else {
+                return (
+                    <p className="price">Pris: DKK {product.item.offerprice}</p>
+                )
+                }
                 })()}
 
-{!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
+            {!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
                         <>
                         <form key={product.item.id}>
                         <input type="hidden" name="product_id" value={product.item.id} />
@@ -95,15 +94,15 @@ export default function ProductView(props) {
                         
                         <button type="button" onClick={() => toCart()}>Læg i kurv</button></form></>
                         }
-                       
+
                     <p>{product.item.stock} på lager</p>
                     <p>Bedømmelse: {product.item.rating}/5</p>
             </article>
 
             </section>
             
-          </div>
-         }
-      </div>
+        </section>
+        }
+    </>
     );
-  }
+}

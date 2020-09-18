@@ -5,6 +5,8 @@ import '../../GlobalStyles.scss'
 
 export default function BrandDetails(props) {
 
+  //useState hook functions til at sætte en variabel, og derefter en variabel til at opdatere
+
     const [brand, setBrand ] = useState()
     const [items, setItems] = useState([]);
 
@@ -12,6 +14,7 @@ export default function BrandDetails(props) {
 
     async function toCart() {
       let formData = new FormData();
+      //appender de data man skriver ind til formen til når de skal postes
       formData.append('quantity', items.quantity)
       formData.append('product_id', items.product_id)
       formData.append('product_name', items.product_name)
@@ -41,6 +44,7 @@ export default function BrandDetails(props) {
         let data = await props.doFetch(url)
         setBrand(data)
     }
+    //Hvis der ikke er noget brandID skal den hente brandID
     useEffect(() => {
         if (props.brandID !== 0) {
         fetchBrand(props.brandID)
@@ -50,9 +54,9 @@ export default function BrandDetails(props) {
 
     // returnerer ud på siden 
     return (
-      <div>
+      <>
         {brand && 
-          <div className="Brand">
+          <section className="Brand">
             <div className="brandBox">
 
           <img className="brandimg" src={brand.item.image_fullpath}/>
@@ -115,8 +119,8 @@ export default function BrandDetails(props) {
             )
     })}   
             
-          </div>
+          </section>
          }
-      </div>
+      </>
     );
   }

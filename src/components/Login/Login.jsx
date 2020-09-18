@@ -8,6 +8,7 @@ function Login(props){
     const [password, setPassword] = useState("Indtast password")
     const [token, setToken] = useState([])
 
+//Funktion der poster med data fra login-formen 
     async function getToken(e){
         e.preventDefault()
         let formData = new FormData()
@@ -30,13 +31,13 @@ function Login(props){
             console.log(error)
         }
     }
-
+//Funtktion til at logge ud med
     function logOut(e){
         e.preventDefault()
         sessionStorage.removeItem("token")
         props.setLoginData([])
     }
-
+//Hvis der er en token med, så sæt LoginData
     useEffect(() => {
         if(token && token.user_id){
             props.setLoginData(token)
@@ -45,12 +46,13 @@ function Login(props){
     }, [token])
 
     console.log(token)
-
+//returnerer ud på siden
     return (
         <>
         <section className="LoginSide">
         <h2>{props.loginData && props.loginData.username ? `Du er logget ind som ${props.loginData.username}`
         : null}</h2>
+
          <form>
             {!props.loginData.user_id && 
             <>
@@ -63,6 +65,7 @@ function Login(props){
                 <button onClick={(e)=> {getToken(e)}}>Log ind</button>
             </>
             }
+            
             {props.loginData.user_id && 
             <>
             <Link className="tohistory" to="/history"><button>Se ordrehistorik</button></Link>

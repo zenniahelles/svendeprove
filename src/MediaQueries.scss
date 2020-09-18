@@ -316,16 +316,14 @@ grid-template-columns: auto;
 }
 
     .Kasse{
-        // text-align:center;
         .FormGrid{
             grid-template-columns: 1fr;
             margin:auto;
             width:100%;
             .order{
-                margin:auto;
+                margin-top:0;
             }
             .disclaimer{
-               margin:auto;
                max-width:300px;
             }
         }

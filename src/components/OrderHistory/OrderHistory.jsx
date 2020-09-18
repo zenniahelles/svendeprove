@@ -32,7 +32,7 @@ function OrderHistory(props){
         }
     }
 console.log(historyData)
-
+//useeffect til at hente historik kun hvis brugeren er logget ind
 useEffect(() => {
     if (props.loginData.access_token){
         getHistory()
@@ -45,11 +45,11 @@ useEffect(() => {
         <section className="History">
             {historyData.items && historyData.items.map((item, index) =>{
                return (
-                <div key={index} className="HistoryGrid">
+                <article key={index} className="HistoryGrid">
                     <p className="item1">{convertTime(item.created)}</p>
                     <p className="item2">DKK {item.total},00</p>
                     <p className="item3">Ordrenr. <span>{item.id}</span></p>
-                </div>
+                </article>
                )
             })}
         </section>

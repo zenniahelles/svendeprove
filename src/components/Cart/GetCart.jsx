@@ -26,6 +26,7 @@ function GetCart(props) {
         }
     }
 
+//useeffect til at hente cart indhold når siden mounter, men kun hvis man er logget ind
     useEffect(() => {
       getCart()
     }, [])
@@ -35,6 +36,8 @@ function GetCart(props) {
             getCart()
         }
     }, [props.loginData])
+
+    // useEffect til at udregne totalprisen ud fra cartlines
 
     useEffect(() => {
         if (cart.cartlines){
@@ -103,23 +106,24 @@ function GetCart(props) {
 
     //--------- Indhold:
 
-    return (
-        <section className="Cart">
+return (
+    <section className="Cart">
         <h2>Din kurv</h2>
 
         {!props.loginData.access_token ? <p style={{color: "white"}}>Du skal være logget ind for at kunne købe.</p> : 
-                        <>
-            {cart.status === false ? <p className="noitems">Kurven er tom</p> : null}
+
+        <>
+        {cart.status === false ? <p className="noitems">Kurven er tom</p> : null}
             
-            {cart.cartlines && cart.cartlines.map((item, i) => { 
+        {cart.cartlines && cart.cartlines.map((item, i) => { 
             return (
-                <>
+            <>
             <section className="cartGrid" key={i}>
                 <figure><img src={item.image_fullpath} alt={item.name}></img></figure>
                 <h4>{item.name}</h4>
+
                 <article className="productDescription">
-                    
-                        <div className="info">
+                    <article className="info">
                         <p>Antal:  <span>{item.quantity}</span></p>
                          <p>{(() => {
                             if (item.offerprice == "0.00") {
@@ -133,7 +137,7 @@ function GetCart(props) {
                             }
                         })()}</p>
                         <button className="cartbutton" onClick={()=>{deleteProduct(item.id)}}>X</button>
-                        </div>
+                    </article>
                 </article>
             </section>
         </>
@@ -147,7 +151,7 @@ function GetCart(props) {
             <Link to="/checkout"><button className="checkout">TIL KASSEN</button></Link>
         </section>}
         </>
-                      }
+                    }
         </section>
     )
 }

@@ -9,8 +9,7 @@ function Buy(props) {
     const [buyData, setBuyData] = useState([]);
 
     async function toCart() {
-        //console.log(items);
-
+        //appender form data til formen til når den skal postes
         let formData = new FormData();
         formData.append('quantity', items.quantity)
         formData.append('product_id', items.product_id)
@@ -72,7 +71,8 @@ return (
                                 )
                                 }
                             })()}
-{!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
+
+        {!props.loginData.access_token ? <p>Du skal være logget ind for at kunne købe.</p> : 
                         <>
                         <form key={item.id}>
                         <input type="hidden" name="product_id" value={item.id} />
@@ -90,6 +90,7 @@ return (
                         
                         <button type="button" onClick={() => toCart()}>Læg i kurv</button></form></>
                         }
+
                         <span>{item.stock} på lager</span>
                         </article>
                 </div>
