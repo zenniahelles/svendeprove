@@ -53,7 +53,7 @@ useEffect(() => {
                )
             })}
         </section>
-        : <h2>Du skal være logget ind får at se ordrehistorik</h2>
+        : <h2>Du skal være logget ind for at se ordrehistorik</h2>
     )
 }
 

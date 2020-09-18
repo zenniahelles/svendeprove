@@ -126,7 +126,7 @@ async function getSearchProducts(token) {
                                 )
                                 } else {
                                 return (
-                                    <p className="price">Pris: DKK {item.offerprice}</p>
+                                    <p className="price offer">Tilbudspris: DKK {item.offerprice}</p>
                                 )
                                 }
                             })()}

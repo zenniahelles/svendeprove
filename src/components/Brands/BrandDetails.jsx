@@ -88,7 +88,7 @@ export default function BrandDetails(props) {
                   )
                   } else {
                   return (
-                      <p className="price">Pris: DKK {item.offerprice}</p>
+                    <p className="price offer">Tilbudspris: DKK {item.offerprice}</p>
                   )
                   }
                 })()}
